@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\ModelLibrary\\ModelLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\ModelLibrary\\ModelLibrary.csproj",
       "projectName": "ModelLibrary",
-      "projectPath": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\ModelLibrary\\ModelLibrary.csproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\ModelLibrary\\ModelLibrary.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\ModelLibrary\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\ModelLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

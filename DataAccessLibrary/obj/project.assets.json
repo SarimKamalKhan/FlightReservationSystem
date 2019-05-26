@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\DataAccessLibrary\\DataAccessLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\DataAccessLibrary\\DataAccessLibrary.csproj",
       "projectName": "DataAccessLibrary",
-      "projectPath": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\DataAccessLibrary\\DataAccessLibrary.csproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\DataAccessLibrary\\DataAccessLibrary.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\DataAccessLibrary\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\DataAccessLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

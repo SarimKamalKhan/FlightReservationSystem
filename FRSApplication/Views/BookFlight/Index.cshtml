@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<h2>Book Your Flight</h2>
+
+@*<script>
+            //$(function () {
+            //});
+
+            //        function AjaxCall(url, data, type) {
+            //            return $.ajax({
+            //                url: url,
+            //                type: type ? type : 'GET',
+            //                data: data,
+            //                contentType: 'application/json'
+            //            });
+            //        }
+            //        Here this $(function () {
+            //        });
+
+
+            //$(document).ready(function () {
+            //    $.ajax({
+            //        type: "GET",
+            //        url: "/BookFlight/GetCities",
+            //        data: "{}",
+            //        success: function (data) {
+            //            var s = '<option value="-1">Please Select a Department</option>';
+            //            for (var i = 0; i < data.length; i++) {
+            //                s += '<option value="' + data[i].DepartmentID + '">' + data[i].DepartmentName + '</option>';
+            //            }
+            //            $("#departmentsDropdown").html(s);
+            //        }
+            //    });
+            //});
+
+
+
+    </script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            //url: "Index.aspx/GetCountriesName",
+            @*url: "@Url.Action("GetCountriesName", "BookFlight")",*@ 
+            url : "BookFlight/GetCountriesName",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (res) {
+                $.each(res.d, function (data, value) {
+
+                    $("#ddlNationality").append($("<option></option>").val(value.CountryId).html(value.CountryName));
+                })
+            }
+
+        });
+
+    })
+
+</script>
+
+<select id="ddlNationality"><option value="0">--Select Country--</option></select>
+
+
+
+<form id="myForm">
+    <label for="departmentsDropdown"><b>Departments</b></label>
+    <select class="form-control" id="departmentsDropdown" name="departmentsDropdown"></select>
+</form>
+
+
+<div class="col-lg-4">
+    <a href="/FRSApplication" class="btn btn-success btn-lg">GoBack to Main &raquo;</a>
+</div><br />
+

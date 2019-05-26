@@ -7,3 +7,14 @@ C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.pdb
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.dll
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.pdb
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.deps.json
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.dll
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.pdb
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\bin\Debug\netstandard2.0\Oracle.ManagedDataAccess.dll
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csprojAssemblyReference.cache
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.AssemblyInfo.cs
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CopyComplete
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.dll
+C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.pdb

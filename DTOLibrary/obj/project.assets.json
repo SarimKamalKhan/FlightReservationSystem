@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\DTOLibrary\\DTOLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\DTOLibrary\\DTOLibrary.csproj",
       "projectName": "DTOLibrary",
-      "projectPath": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\DTOLibrary\\DTOLibrary.csproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\DTOLibrary\\DTOLibrary.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\Development\\FlightReservationSystem\\FlightReservationSystem\\DTOLibrary\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\DTOLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

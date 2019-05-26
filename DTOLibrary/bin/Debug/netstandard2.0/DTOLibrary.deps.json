@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "c2dacf473ae9a76795c3adc6da16b1ad2d754a2a"
+    "signature": "cfe1dc2a80602aef150a12815387068463a61a0d"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,8 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "DTOLibrary/1.0.0": {
         "dependencies": {
-          "NETStandard.Library": "2.0.3",
-          "Oracle.ManagedDataAccess": "19.3.0"
+          "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "DTOLibrary.dll": {}
@@ -20,14 +19,6 @@
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
-        }
-      },
-      "Oracle.ManagedDataAccess/19.3.0": {
-        "runtime": {
-          "lib/net40/Oracle.ManagedDataAccess.dll": {
-            "assemblyVersion": "4.122.19.1",
-            "fileVersion": "4.122.19.1"
-          }
         }
       }
     }
@@ -51,13 +42,6 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
-    },
-    "Oracle.ManagedDataAccess/19.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-8JnXBZXdExSMGroKA76kmy00NESsL3Ai0kX6qNqw7JGNqsTjN0Obail4swQ+/9PGG6G4t0oaGJE5MwajDM8ayQ==",
-      "path": "oracle.manageddataaccess/19.3.0",
-      "hashPath": "oracle.manageddataaccess.19.3.0.nupkg.sha512"
     }
   }
 }
