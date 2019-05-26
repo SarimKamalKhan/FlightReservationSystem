@@ -1,0 +1,6 @@
+C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\ModelLibrary\bin\Debug\netstandard2.0\ModelLibrary.deps.json
+C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\ModelLibrary\bin\Debug\netstandard2.0\ModelLibrary.dll
+C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.AssemblyInfo.cs
+C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.csprojAssemblyReference.cache
