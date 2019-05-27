@@ -16,3 +16,12 @@ C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DTOLibrary\obj\Debug\n
 C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.AssemblyInfo.cs
 C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.dll
 C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.pdb
+E:\Github\Sarim\DTOLibrary\bin\Debug\netstandard2.0\DTOLibrary.deps.json
+E:\Github\Sarim\DTOLibrary\bin\Debug\netstandard2.0\DTOLibrary.dll
+E:\Github\Sarim\DTOLibrary\bin\Debug\netstandard2.0\DTOLibrary.pdb
+E:\Github\Sarim\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.csprojAssemblyReference.cache
+E:\Github\Sarim\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.csproj.CoreCompileInputs.cache
+E:\Github\Sarim\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.AssemblyInfoInputs.cache
+E:\Github\Sarim\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.AssemblyInfo.cs
+E:\Github\Sarim\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.dll
+E:\Github\Sarim\DTOLibrary\obj\Debug\netstandard2.0\DTOLibrary.pdb

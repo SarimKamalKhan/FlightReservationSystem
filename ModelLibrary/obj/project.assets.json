@@ -179,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {},
+    "C:\\Users\\rabia.qaiser\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\ModelLibrary\\ModelLibrary.csproj",
+      "projectUniqueName": "E:\\Github\\Sarim\\ModelLibrary\\ModelLibrary.csproj",
       "projectName": "ModelLibrary",
-      "projectPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\ModelLibrary\\ModelLibrary.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\DevelopmentDP\\FlightReservationSystem\\ModelLibrary\\obj\\",
+      "projectPath": "E:\\Github\\Sarim\\ModelLibrary\\ModelLibrary.csproj",
+      "packagesPath": "C:\\Users\\rabia.qaiser\\.nuget\\packages\\",
+      "outputPath": "E:\\Github\\Sarim\\ModelLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rabia.qaiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
