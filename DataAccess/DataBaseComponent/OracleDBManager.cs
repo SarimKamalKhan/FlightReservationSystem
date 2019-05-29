@@ -17,11 +17,36 @@ namespace DataAccess.DataBaseComponent
             this.ConnectionString = ConnectionString;
         }
 
+        //Singletone
+        public static OracleConnection Connection;
+
+        private OracleConnection OpenConnection()
+        {
+            string sFunctionName = ".OpenConnection()";
+            try
+            {
+                if (Connection == null)
+                {
+                    lock (Connection)
+                    {
+                        if (Connection == null)
+                        {
+                            Connection = new OracleConnection(ConnectionString);
+                        }
+                    }
+                }
+                return Connection;
+            }
+            catch (Exception ex)
+            {
+                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
+                throw ex;
+            }
+        }
         override public DataSet ExecuteDirectQuery(string Query, GeneralParams[] Params)
         {
             string sFunctionName = "ExecuteDirectQuery";
-            OracleConnection Connection = null;
-
+         
             try
             {
                 Connection = OpenConnection();
@@ -57,7 +82,7 @@ namespace DataAccess.DataBaseComponent
         override public int ExecuteNonQuery(string SPName, GeneralParams[] Params)
         {
             string sFunctionName = "ExecuteNonQuery";
-            OracleConnection Connection = null;
+           
 
             try
             {
@@ -85,7 +110,7 @@ namespace DataAccess.DataBaseComponent
         override public DataSet ExecuteSP(string SPName, GeneralParams[] Params)
         {
             string sFunctionName = " + ExecuteSP";
-            OracleConnection Connection = null;
+           
 
             try
             {
@@ -115,7 +140,7 @@ namespace DataAccess.DataBaseComponent
         {
             string sFunctionName = "ExecuteSPParamQuery";
             List<GeneralParams> Paramlist = new List<GeneralParams>();
-            OracleConnection Connection = null;
+           
 
             try
             {
@@ -264,21 +289,6 @@ namespace DataAccess.DataBaseComponent
             }
         }
 
-        private OracleConnection OpenConnection()
-        {
-            string sFunctionName = ".OpenConnection()";
-            try
-            {
-                OracleConnection Connection = new OracleConnection(ConnectionString);
-                Connection.Open();
-                return Connection;
-            }
-            catch (Exception ex)
-            {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
-                throw ex;
-            }
-        }
         private void SetParameters(ref GeneralParams[] Params, OracleCommand Command)
         {
             string sFunctionName = ".SetParameters()";

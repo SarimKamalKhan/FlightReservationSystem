@@ -1,4 +1,5 @@
 ﻿using CommonHelper.Constants;
+using Constants.Constants;
 using Models.Requests;
 using Models.Responses;
 using System;
@@ -20,9 +21,36 @@ namespace BusinessAPI.Controllers
 
             try
             {
-                string response = string.Empty;
-                //CityRepository cityRepository = new CityRepository();
-                //cities = cityRepository.GetByCountryCode(countryCode, out response);
+                return (GetFlightReservationDetailsViaCategory(request));
+
+            }
+            catch (Exception ex)
+            {
+                return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.InternalServerError, getFlightReservationResponse);
+            }
+        }
+
+        private HttpResponseMessage GetFlightReservationDetailsViaCategory(GetFlightReservationRequest request)
+        {
+            GetFlightReservationResponse getFlightReservationResponse = new GetFlightReservationResponse();
+            string response = string.Empty;
+
+            try
+            {
+                switch (request.TravelCategoryCode)
+                {
+                    case TravelCategory.FirstClass:
+
+
+                        break;
+
+                    case TravelCategory.Economy:
+                        break;
+
+                    case TravelCategory.Business:
+                        break;
+                }
+
 
                 if (response == ResponseCodes.Success)
                     return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.OK, getFlightReservationResponse);
