@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DTOLibrary
+﻿namespace DTOLibrary
 {
-    abstract class City
+    public class City
     {
-        //schema's property here
         public int  Id { get; set; }
         public string Name { get; set; }
         public string CountryCode { get; set; }
-
         public string Status { get; set; }
-
         public City()
         {
-
+            Id = 0;
+            Name = string.Empty;
+            CountryCode = string.Empty;
+            Status = "0";
         }
 
     }

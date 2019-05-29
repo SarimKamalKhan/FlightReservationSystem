@@ -1,18 +1,27 @@
-﻿using System;
+﻿using DTOLibrary;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 namespace BusinessAPI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ApiController
     {
-        public ActionResult Index()
+        [HttpPost]
+        public HttpResponseMessage GetCities(string countryCode)
         {
-            ViewBag.Title = "Home Page";
+            string methodName = "GetCities";
+            List<City> cities = new List<City>();
 
-            return View();
+            try
+            {
+                return this.Request.CreateResponse<List<City>>(HttpStatusCode.OK, cities);
+            }
+            catch (Exception ex)
+            {
+                 return this.Request.CreateResponse<List<City>>(HttpStatusCode.InternalServerError, cities);
+            }
         }
     }
 }

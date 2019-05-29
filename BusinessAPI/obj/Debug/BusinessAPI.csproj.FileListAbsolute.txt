@@ -61,6 +61,8 @@ C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.dll
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.pdb
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\Oracle.ManagedDataAccess.dll
+E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csprojAssemblyReference.cache
+E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csproj.CoreCompileInputs.cache
 E:\Github\Sarim\BusinessAPI\bin\BusinessAPI.dll.config
 E:\Github\Sarim\BusinessAPI\bin\BusinessAPI.dll
 E:\Github\Sarim\BusinessAPI\bin\BusinessAPI.pdb
@@ -91,6 +93,7 @@ E:\Github\Sarim\BusinessAPI\bin\roslyn\vbc.rsp
 E:\Github\Sarim\BusinessAPI\bin\roslyn\VBCSCompiler.exe
 E:\Github\Sarim\BusinessAPI\bin\roslyn\VBCSCompiler.exe.config
 E:\Github\Sarim\BusinessAPI\bin\Antlr3.Runtime.dll
+E:\Github\Sarim\BusinessAPI\bin\DTOLibrary.dll
 E:\Github\Sarim\BusinessAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\Github\Sarim\BusinessAPI\bin\Microsoft.Web.Infrastructure.dll
 E:\Github\Sarim\BusinessAPI\bin\Newtonsoft.Json.dll
@@ -106,6 +109,7 @@ E:\Github\Sarim\BusinessAPI\bin\System.Web.WebPages.Deployment.dll
 E:\Github\Sarim\BusinessAPI\bin\System.Web.WebPages.dll
 E:\Github\Sarim\BusinessAPI\bin\System.Web.WebPages.Razor.dll
 E:\Github\Sarim\BusinessAPI\bin\WebGrease.dll
+E:\Github\Sarim\BusinessAPI\bin\DTOLibrary.pdb
 E:\Github\Sarim\BusinessAPI\bin\Newtonsoft.Json.xml
 E:\Github\Sarim\BusinessAPI\bin\System.Net.Http.Formatting.xml
 E:\Github\Sarim\BusinessAPI\bin\System.Web.Helpers.xml
@@ -119,8 +123,6 @@ E:\Github\Sarim\BusinessAPI\bin\System.Web.WebPages.Deployment.xml
 E:\Github\Sarim\BusinessAPI\bin\System.Web.WebPages.Razor.xml
 E:\Github\Sarim\BusinessAPI\bin\Antlr3.Runtime.pdb
 E:\Github\Sarim\BusinessAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csprojAssemblyReference.cache
-E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csproj.CoreCompileInputs.cache
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csproj.CopyComplete
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.dll
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.pdb

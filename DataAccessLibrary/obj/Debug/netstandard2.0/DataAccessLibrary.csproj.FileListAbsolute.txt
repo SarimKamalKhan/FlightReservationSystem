@@ -18,14 +18,14 @@ C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\
 C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CopyComplete
 C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.dll
 C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.pdb
+E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
+E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.AssemblyInfoInputs.cache
+E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.AssemblyInfo.cs
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.deps.json
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.dll
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.pdb
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\Oracle.ManagedDataAccess.dll
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csprojAssemblyReference.cache
-E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
-E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.AssemblyInfoInputs.cache
-E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.AssemblyInfo.cs
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CopyComplete
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.dll
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.pdb
