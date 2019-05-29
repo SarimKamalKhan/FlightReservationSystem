@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.Responses
 {
-    class GetFlightReservationResponse
+   public class GetFlightReservationResponse
     {
     }
 }

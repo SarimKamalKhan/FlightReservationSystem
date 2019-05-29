@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CommonHelper.Constants;
+using Models.Requests;
+using Models.Responses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,31 +12,27 @@ namespace BusinessAPI.Controllers
 {
     public class FlightManagementController : ApiController
     {
-        // GET: api/FlightManagement
-        public IEnumerable<string> Get()
+        [HttpPost]
+        public HttpResponseMessage GetFlightReservationDetails(GetFlightReservationRequest request)
         {
-            return new string[] { "value1", "value2" };
-        }
+            string methodName = "GetFlightReservationDetails";
+            GetFlightReservationResponse getFlightReservationResponse = new GetFlightReservationResponse();
 
-        // GET: api/FlightManagement/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+            try
+            {
+                string response = string.Empty;
+                //CityRepository cityRepository = new CityRepository();
+                //cities = cityRepository.GetByCountryCode(countryCode, out response);
 
-        // POST: api/FlightManagement
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/FlightManagement/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/FlightManagement/5
-        public void Delete(int id)
-        {
+                if (response == ResponseCodes.Success)
+                    return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.OK, getFlightReservationResponse);
+                else
+                    return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.BadRequest, getFlightReservationResponse);
+            }
+            catch (Exception ex)
+            {
+                return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.InternalServerError, getFlightReservationResponse);
+            }
         }
     }
 }
