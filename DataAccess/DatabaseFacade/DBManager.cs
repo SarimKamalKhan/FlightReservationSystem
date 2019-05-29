@@ -12,13 +12,13 @@ namespace DataAccess.DatabaseFacade
             string source = ClassName + functionName;
             spResponse = string.Empty;
 
-            string SPName = "PKG_CITY.GetByCode";
+            string SPName = "PKG_CITY.GetByCountryCode";
 
             GeneralParams[] Params = new GeneralParams[3];
 
             Params[0] = new GeneralParams("inCode", 100, GeneralParams.GeneralDBTypes.VarChar, countryCode, ParameterDirection.Input);
             Params[1] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
-            Params[2] = new GeneralParams("outResponseCode", 4, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+            Params[2] = new GeneralParams("outResponseCode", 2, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
 
             //#region File Logging
             //LogManager.GetDBLogger().Info(

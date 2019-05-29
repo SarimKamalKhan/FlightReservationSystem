@@ -7,6 +7,7 @@ using System.Web.Services;
 
 namespace FRSApplication.Controllers
 {
+
     public class BookFlightController : Controller
     {
         // GET: BookFlight
@@ -25,17 +26,30 @@ namespace FRSApplication.Controllers
             return Json(Countries, JsonRequestBehavior.AllowGet);
         }
 
-        [WebMethod]
-        [HttpPost]
-        //[Route("/FRSApplication/BookFlight/GetCountriesName")]
-        public static List<string> GetCountriesName()
-        {
-            List<string> lst = new List<string>();
-            lst.Add("India");
-            lst.Add( "Nepal");
-            lst.Add("America" );
-            return lst;
 
+        //[HttpPost]
+        //[Route("BookFlight/GetCountriesName")]
+
+        //public static List<string> GetCountriesName()
+        //{
+        //    List<string> lst = new List<string>();
+        //    lst.Add("Pakistan");
+        //    lst.Add("Norway");
+        //    lst.Add("America");
+        //    return lst;
+
+        //}
+
+
+        [HttpPost]
+        [Route("/BookFlight/GetCountriesName")]
+        public JsonResult GetCitiesName()
+        {
+            List<string> city = new List<string>();
+            city.Add("Karachi");
+            city.Add("Islamabad");
+            city.Add("Lahore");
+            return Json(city, JsonRequestBehavior.AllowGet);
         }
     }
 }

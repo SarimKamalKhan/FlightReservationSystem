@@ -5,72 +5,55 @@
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<h2>Book Your Flight</h2>
-
-@*<script>
-            //$(function () {
-            //});
-
-            //        function AjaxCall(url, data, type) {
-            //            return $.ajax({
-            //                url: url,
-            //                type: type ? type : 'GET',
-            //                data: data,
-            //                contentType: 'application/json'
-            //            });
-            //        }
-            //        Here this $(function () {
-            //        });
-
-
-            //$(document).ready(function () {
-            //    $.ajax({
-            //        type: "GET",
-            //        url: "/BookFlight/GetCities",
-            //        data: "{}",
-            //        success: function (data) {
-            //            var s = '<option value="-1">Please Select a Department</option>';
-            //            for (var i = 0; i < data.length; i++) {
-            //                s += '<option value="' + data[i].DepartmentID + '">' + data[i].DepartmentName + '</option>';
-            //            }
-            //            $("#departmentsDropdown").html(s);
-            //        }
-            //    });
-            //});
 
 
 
-    </script>*@
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajax({
-            type: "POST",
-            //url: "Index.aspx/GetCountriesName",
-            @*url: "@Url.Action("GetCountriesName", "BookFlight")",*@ 
-            url : "BookFlight/GetCountriesName",
-            dataType: "json",
-            contentType: "application/json",
-            success: function (res) {
-                $.each(res.d, function (data, value) {
+<script>
+  $.ajax({
+        type: "POST",
+        dataType: 'JSON',
+        url: "@Url.Action("GetCitiesName", "BookFlight")",
+        success: function (GetCities) {
+            console.log(GetCities);
+            $('#GetCities').html('');
+            var appenddata1 = '<option value="0">Select City</option>';
+                        for (var x = 0; x < GetCities.length; x++) {
+                            appenddata1 += (`
+                               <option value="${GetCities[x]}">${GetCities[x]}</option>
+                           `);
 
-                    $("#ddlNationality").append($("<option></option>").val(value.CountryId).html(value.CountryName));
-                })
-            }
+                            //$('#GetCities').append(`
+                            //    <option value="${hallsList[x]}"></option>
+                            //`);
+                           }
+            $("#GetCities").append(appenddata1);
 
-        });
+        },
+        error: function (xhr,status, exception) {
+            console.log("Error: " + exception + ", Status: " + status);
+        }
+    });
 
-    })
 
 </script>
 
+
+<div id="GetCitiesRow" style="margin-top:50px">
+    <label class="col-sm-2">Book Your Flight</label>
+    <div class="col-sm-4" style="color:black">
+        <select id="GetCities" name="GetCities" class="form-control">
+            <option value="0">--Select City--</option>
+        </select>
+
+    </div>
+</div>
+
+
 <select id="ddlNationality"><option value="0">--Select Country--</option></select>
 
+<br />
+<br />
 
-
-<form id="myForm">
-    <label for="departmentsDropdown"><b>Departments</b></label>
-    <select class="form-control" id="departmentsDropdown" name="departmentsDropdown"></select>
-</form>
 
 
 <div class="col-lg-4">
