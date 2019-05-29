@@ -251,8 +251,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTOLibrary\DataTransferObjects.csproj">
-      <Project>{26d454c5-2748-4e24-bed0-4df140ef7fc4}</Project>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
+      <Project>{4370D817-362E-4A88-9248-36EC3175589E}</Project>
       <Name>DataTransferObjects</Name>
     </ProjectReference>
   </ItemGroup>

@@ -25,7 +25,6 @@ E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.dep
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.dll
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.pdb
 E:\Github\Sarim\DataAccessLibrary\bin\Debug\netstandard2.0\Oracle.ManagedDataAccess.dll
-E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csprojAssemblyReference.cache
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.csproj.CopyComplete
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.dll
 E:\Github\Sarim\DataAccessLibrary\obj\Debug\netstandard2.0\DataAccessLibrary.pdb
