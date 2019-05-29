@@ -2584,9 +2584,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Github\\Sarim\\DTOLibrary\\DTOLibrary.csproj",
-      "projectName": "DTOLibrary",
-      "projectPath": "E:\\Github\\Sarim\\DTOLibrary\\DTOLibrary.csproj",
+      "projectUniqueName": "E:\\Github\\Sarim\\DTOLibrary\\DataTransferObjects.csproj",
+      "projectName": "DataTransferObjects",
+      "projectPath": "E:\\Github\\Sarim\\DTOLibrary\\DataTransferObjects.csproj",
       "packagesPath": "C:\\Users\\rabia.qaiser\\.nuget\\packages\\",
       "outputPath": "E:\\Github\\Sarim\\DTOLibrary\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DTOLibrary.ApiModels
+﻿namespace DataTransferObjects.ApiModels
 {
     class GetFlightReservationResponse
     {

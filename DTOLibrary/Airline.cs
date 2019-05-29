@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DTOLibrary
+namespace DataTransferObjects
 {
     public abstract class Airline
     {

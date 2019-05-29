@@ -1,4 +1,4 @@
-﻿namespace DTOLibrary
+﻿namespace DataTransferObjects
 {
     public class City
     {
