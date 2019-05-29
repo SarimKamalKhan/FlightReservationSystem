@@ -15,12 +15,14 @@ namespace BusinessAPI.Controllers
         /// </summary>
         /// <param name="countryCode"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage GetCities(string countryCode)
         {
             string methodName = "GetCities";
             IList<CityDTO> cities = new List<CityDTO>();
-            //TODO : read this article https://stackoverflow.com/questions/400135/listt-or-ilistt
+            //TODO sarim : read this article https://stackoverflow.com/questions/400135/listt-or-ilistt
+            //remove the comment after reading :p
+
             try
             {
                 string response = string.Empty;
