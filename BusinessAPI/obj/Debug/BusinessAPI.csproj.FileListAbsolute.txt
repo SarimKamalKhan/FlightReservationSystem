@@ -61,5 +61,5 @@ C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.dll
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.pdb
 C:\Users\hp\Desktop\Development\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\Oracle.ManagedDataAccess.dll
-E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csproj.CoreCompileInputs.cache
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csprojAssemblyReference.cache
+E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csproj.CoreCompileInputs.cache

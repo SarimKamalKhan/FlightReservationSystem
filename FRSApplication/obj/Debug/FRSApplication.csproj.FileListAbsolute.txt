@@ -145,7 +145,6 @@ E:\Github\Sarim\FRSApplication\bin\Antlr3.Runtime.dll
 E:\Github\Sarim\FRSApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\Github\Sarim\FRSApplication\bin\Microsoft.Web.Infrastructure.dll
 E:\Github\Sarim\FRSApplication\bin\Newtonsoft.Json.dll
-E:\Github\Sarim\FRSApplication\bin\Oracle.ManagedDataAccess.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.Helpers.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.Mvc.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.Optimization.dll
@@ -164,6 +163,7 @@ E:\Github\Sarim\FRSApplication\bin\System.Web.WebPages.Razor.xml
 E:\Github\Sarim\FRSApplication\bin\Newtonsoft.Json.xml
 E:\Github\Sarim\FRSApplication\bin\Antlr3.Runtime.pdb
 E:\Github\Sarim\FRSApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csprojAssemblyReference.cache
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csproj.CoreCompileInputs.cache
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csproj.CopyComplete
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.dll
