@@ -16,6 +16,7 @@ C:\Users\hp\Desktop\DevelopmentDP\FlightReservationSystem\ModelLibrary\obj\Debug
 E:\Github\Sarim\ModelLibrary\bin\Debug\netstandard2.0\ModelLibrary.deps.json
 E:\Github\Sarim\ModelLibrary\bin\Debug\netstandard2.0\ModelLibrary.dll
 E:\Github\Sarim\ModelLibrary\bin\Debug\netstandard2.0\ModelLibrary.pdb
+E:\Github\Sarim\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.csprojAssemblyReference.cache
 E:\Github\Sarim\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.csproj.CoreCompileInputs.cache
 E:\Github\Sarim\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.AssemblyInfoInputs.cache
 E:\Github\Sarim\ModelLibrary\obj\Debug\netstandard2.0\ModelLibrary.AssemblyInfo.cs

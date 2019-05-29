@@ -8,6 +8,11 @@ namespace BusinessAPI.Controllers
 {
     public class HomeController : ApiController
     {
+        /// <summary>
+        /// Get cities by country code
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
         [HttpPost]
         public HttpResponseMessage GetCities(string countryCode)
         {
