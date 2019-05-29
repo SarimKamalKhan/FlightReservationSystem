@@ -252,7 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
-      <Project>{4370D817-362E-4A88-9248-36EC3175589E}</Project>
+      <Project>{d0498e83-4917-42cb-9a68-d8179e09d313}</Project>
       <Name>DataTransferObjects</Name>
     </ProjectReference>
   </ItemGroup>
