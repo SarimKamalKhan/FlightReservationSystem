@@ -250,6 +250,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Constants\CommonHelper.csproj">
+      <Project>{8ecaab1a-8fa7-4222-9a9e-e99fb9c15ae9}</Project>
+      <Name>CommonHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{d8ef4774-a398-4fc7-a84f-a3a4fb588131}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
       <Project>{d0498e83-4917-42cb-9a68-d8179e09d313}</Project>
       <Name>DataTransferObjects</Name>
