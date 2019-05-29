@@ -1,5 +1,8 @@
 ﻿using CommonHelper.Constants;
+using Constants;
 using Constants.Constants;
+using DataAccess.Repositories.TravelCategory;
+using DataTransferObjects.TravelCategories;
 using Models.Requests;
 using Models.Responses;
 using System;
@@ -40,6 +43,12 @@ namespace BusinessAPI.Controllers
                 switch (request.TravelCategoryCode)
                 {
                     case TravelCategory.FirstClass:
+                        
+                        FirstClassReservationDTO firstClassReservationtRequest = Mapper.GetFirstClassReservationDTO(request);
+
+                        FirstClassRepository firstClassRepository = new FirstClassRepository();
+
+                        FlightReservationDetailsDTO flightReservationDetails = firstClassRepository.GetFlightReservationDetails(firstClassReservationtRequest, out response);
 
 
                         break;
@@ -62,5 +71,7 @@ namespace BusinessAPI.Controllers
                 return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.InternalServerError, getFlightReservationResponse);
             }
         }
+
+       
     }
 }
