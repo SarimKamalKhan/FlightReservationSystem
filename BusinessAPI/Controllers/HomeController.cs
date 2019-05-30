@@ -31,22 +31,24 @@ namespace BusinessAPI.Controllers
                 string response = string.Empty;
                 CityRepository cityRepository = new CityRepository();
 
-                //temporary commenting
                 getCitiesResponse.Cities = cityRepository.GetByCountryCode(countryCode, out response);
 
                 ///////////////////Testing
                 //CityDTO test = new CityDTO();
                 //test.Id = 1;
                 //test.Name = "Karachi";
+                //test.CityCode = "KAR";
 
                 //getCitiesResponse.Cities.Add(test);
 
+                //test = new CityDTO();
                 //test.Id = 2;
                 //test.Name = "Lahore";
+                //test.CityCode = "LAH";
 
                 //getCitiesResponse.Cities.Add(test);
 
-                //response = ResponseCodes.Success;
+                response = ResponseCodes.Success;
 
                 /////////////////////
 

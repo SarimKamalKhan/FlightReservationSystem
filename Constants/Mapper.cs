@@ -7,7 +7,7 @@ namespace Constants
 {
     public static class Mapper
     {
-        public static FirstClassReservationDTO GetFirstClassReservationDTO(GetFlightReservationRequest request)
+        public static FirstClassReservationDTO GetFirstClassReservationDTO(GetFlightSchedulesRequest request)
         {
             FirstClassReservationDTO firstClassReservationtRequest = new FirstClassReservationDTO();
             firstClassReservationtRequest.TravelCategoryCode = TravelCategory.FirstClass;
@@ -19,7 +19,7 @@ namespace Constants
             return firstClassReservationtRequest;
         }
 
-        public static AllClassReservationDTO GetAllClassReservationDTO(GetFlightReservationRequest request)
+        public static AllClassReservationDTO GetAllClassReservationDTO(GetFlightSchedulesRequest request)
         {
             AllClassReservationDTO allClassReservationtRequest = new AllClassReservationDTO();
             allClassReservationtRequest.TravelCategoryCode = request.TravelCategoryCode;

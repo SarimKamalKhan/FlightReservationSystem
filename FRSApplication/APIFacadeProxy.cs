@@ -1,4 +1,5 @@
-﻿using Models.Responses;
+﻿using Models.Requests;
+using Models.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -107,8 +108,6 @@ namespace FRSApplication
 
                 responseJSON = apiResponse.Content.ReadAsStringAsync().Result;
 
-                GetCitiesResponse payResponse = JsonConvert.DeserializeObject<GetCitiesResponse>(responseJSON);
-
                 if (apiResponse.StatusCode == HttpStatusCode.OK)
                 {
                     isProcessed = true;
@@ -120,6 +119,45 @@ namespace FRSApplication
                 }
 
              
+            }
+
+            catch (Exception ex)
+            {
+                isProcessed = false;
+            }
+
+            return isProcessed;
+        }
+
+        public static bool GetFlightSchedules(GetFlightSchedulesRequest request, out string responseJSON)
+        {
+            string actionName = ".GetFlightSchedules";
+            string source = ClassName + actionName;
+            responseJSON = string.Empty;
+            bool isProcessed = false;
+
+            string url = "FlightManagement/GetFlightSchedules";
+            string httpMethod = "POST";
+
+            try
+            {
+                string requestJSON = JsonConvert.SerializeObject(request, Formatting.Indented);
+            
+                var apiResponse = APIConsumer(url, httpMethod, null, null, requestJSON);
+
+                responseJSON = apiResponse.Content.ReadAsStringAsync().Result;
+
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    isProcessed = true;
+                }
+
+                else
+                {
+                    isProcessed = false;
+                }
+
+
             }
 
             catch (Exception ex)

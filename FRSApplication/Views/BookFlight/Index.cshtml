@@ -9,27 +9,6 @@
 
 
 <script>
-    @*$.ajax({
-        type: "POST",
-        dataType: 'JSON',
-        url: "@Url.Action("GetCitiesByCountryCode", "BookFlight")",
-        success: function (GetCities) {
-            console.log(GetCities);
-            $('#GetCities').html('');
-            var appenddata1 = '<option value="0">--Select City--</option>';
-                        for (var x = 0; x < GetCities.length; x++) {
-                            appenddata1 += (`
-                               <option value="${GetCities[x]}">${GetCities[x]}</option>
-                           `);
-                           }
-            $("#GetCities").append(appenddata1);
-
-        },
-        error: function (xhr,status, exception) {
-            console.log("Error: " + exception + ", Status: " + status);
-        }
-    });*@
-
 
     $.ajax({
         type: "POST",
@@ -38,21 +17,16 @@
         success: function (result) {
             console.log(result);
 
-            var citiesList = JSON.parse(JSON.stringify(result));
+            $('#cities').html('');
 
-            $('#GetCities').html('');
-            var appenddata1 = '<option value="0">--Select City--</option>';
-            for (var x = 0; x < citiesList.length; x++) {
+            var options = '';
+            options += '<option value="">--Select City--</option>';
+            for (var i = 0; i < result.Cities.length; i++) {
 
-                console.log("city : " + citiesList[x].Id);
-                            appenddata1 += (`
-                               <option value="${citiesList[x].Id}">${citiesList[x].Name}</option>
-                           `);
-                           }
-
-            console.log(appenddata1);
-
-            $("#GetCities").append(appenddata1);
+                debugger;
+                options += '<option value="' + result.Cities[i].CityCode + '">' + result.Cities[i].Name + '</option>';
+            }
+            $('#cities').append(options);
 
         },
         error: function (xhr,status, exception) {
@@ -87,7 +61,7 @@
 <div id="GetCitiesRow" style="margin-top:50px">
     <label class="col-sm-1">City</label>
     <div class="col-sm-4" style="color:black">
-        <select id="GetCities" name="GetCities" class="form-control">
+        <select id="cities" name="GetCities" class="form-control">
             <option value="0">--Select City--</option>
         </select>
 

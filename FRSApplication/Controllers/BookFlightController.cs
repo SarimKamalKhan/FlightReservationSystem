@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Models.Responses;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -26,6 +27,7 @@ namespace FRSApplication.Controllers
             string actionName = ".GetCitiesByCountryCode";
             string source = ControllerName + actionName;
             string jsonCities = string.Empty;
+            GetCitiesResponse getCitiesResponse = new GetCitiesResponse();
 
             try
             {
@@ -41,19 +43,14 @@ namespace FRSApplication.Controllers
                     GetCities();
                 }
 
-                return Json(new
-                {
-                    isSuccess = true,
-                    response = jsonCities,
-                });
+                if(!string.IsNullOrEmpty(jsonCities))
+                      getCitiesResponse = JsonConvert.DeserializeObject<GetCitiesResponse>(jsonCities);
+
+                return Json(getCitiesResponse, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
-                return Json(new
-                {
-                    isSuccess = false,
-                    response = jsonCities,
-                });
+                return Json(getCitiesResponse, JsonRequestBehavior.AllowGet);
             }
         }
 

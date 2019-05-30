@@ -17,25 +17,25 @@ namespace BusinessAPI.Controllers
     public class FlightManagementController : ApiController
     {
         [HttpPost]
-        public HttpResponseMessage GetFlightReservationDetails(GetFlightReservationRequest request)
+        public HttpResponseMessage GetFlightSchedules(GetFlightSchedulesRequest request)
         {
-            string methodName = "GetFlightReservationDetails";
-            GetFlightReservationResponse getFlightReservationResponse = new GetFlightReservationResponse();
+            string methodName = "GetFlighSchedules";
+            GetFlightSchedulesResponse getFlightSchedulesResponse = new GetFlightSchedulesResponse();
 
             try
             {
-                return (GetFlightReservationDetailsViaCategory(request));
+                return (GetFlightSchedulesViaCategory(request));
 
             }
             catch (Exception ex)
             {
-                return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.InternalServerError, getFlightReservationResponse);
+                return this.Request.CreateResponse<GetFlightSchedulesResponse>(HttpStatusCode.InternalServerError, getFlightSchedulesResponse);
             }
         }
 
-        private HttpResponseMessage GetFlightReservationDetailsViaCategory(GetFlightReservationRequest request)
+        private HttpResponseMessage GetFlightSchedulesViaCategory(GetFlightSchedulesRequest request)
         {
-            GetFlightReservationResponse getFlightReservationResponse = new GetFlightReservationResponse();
+            GetFlightSchedulesResponse getFlightReservationResponse = new GetFlightSchedulesResponse();
             string response = string.Empty;
 
             try
@@ -92,13 +92,13 @@ namespace BusinessAPI.Controllers
 
 
                 if (response == ResponseCodes.Success)
-                    return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.OK, getFlightReservationResponse);
+                    return this.Request.CreateResponse<GetFlightSchedulesResponse>(HttpStatusCode.OK, getFlightReservationResponse);
                 else
-                    return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.BadRequest, getFlightReservationResponse);
+                    return this.Request.CreateResponse<GetFlightSchedulesResponse>(HttpStatusCode.BadRequest, getFlightReservationResponse);
             }
             catch (Exception ex)
             {
-                return this.Request.CreateResponse<GetFlightReservationResponse>(HttpStatusCode.InternalServerError, getFlightReservationResponse);
+                return this.Request.CreateResponse<GetFlightSchedulesResponse>(HttpStatusCode.InternalServerError, getFlightReservationResponse);
             }
         }
 
