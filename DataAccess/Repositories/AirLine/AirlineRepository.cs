@@ -35,7 +35,7 @@ namespace DataAccess.Repositories.AirLine
                         airlineDTO.Name = Validation.GetEmptyIfNull(dr["Name"]);
                         airlineDTO.Id = Validation.GetZeroIfEmpty(dr["ID"]);
                         airlineDTO.CountryCode = Validation.GetEmptyIfNull(dr["CountryCode"]);
-                        airlineDTO.Code = Validation.GetEmptyIfNull(dr["CityCode"]);
+                        airlineDTO.Code = Validation.GetEmptyIfNull(dr["Code"]);
                         airlineList.Add(airlineDTO);
                     }
                 }
