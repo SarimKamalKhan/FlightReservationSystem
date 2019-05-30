@@ -25,21 +25,21 @@ namespace FRSApplication
         private void GetAirLinesByCountryCode()
         {
             string countryCode = ConfigurationManager.AppSettings["CountryCode"];
-            string jsonCountries = string.Empty;
+            string jsonAirLines = string.Empty;
 
-            bool isProcessed = APIFacadeProxy.GetAirLinesByCountryCode(countryCode, out jsonCountries);
+            bool isProcessed = APIFacadeProxy.GetAirLinesByCountryCode(countryCode, out jsonAirLines);
 
-            Models.ApplicationSettings.AirLines = jsonCountries;
+            Models.ApplicationSettings.AirLines = jsonAirLines;
         }
 
         private void GetCitiesByCountryCode()
         {
             string countryCode = ConfigurationManager.AppSettings["CountryCode"];
-            string jsonCountries = string.Empty;
+            string jsonCities = string.Empty;
 
-            bool isProcessed = APIFacadeProxy.GetCitiesByCountryCode(countryCode, out jsonCountries);
+            bool isProcessed = APIFacadeProxy.GetCitiesByCountryCode(countryCode, out jsonCities);
 
-            Models.ApplicationSettings.Cities = jsonCountries;
+            Models.ApplicationSettings.Cities = jsonCities;
         }
     }
 }
