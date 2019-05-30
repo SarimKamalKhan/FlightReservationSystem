@@ -72,5 +72,41 @@ namespace DataAccess.DatabaseFacade
             return ds_Responses;
         }
 
+        public DataSet GetAllClassReservationDetails(AllClassReservationDTO allClassReservation, out string spResponse)
+        {
+            string functionName = ".GetAllClassReservationDetails";
+            string source = ClassName + functionName;
+            spResponse = string.Empty;
+            DataSet ds_Responses = new DataSet();
+            try
+            {
+
+                string SPName = "PKG_FLIGHT_RESERVATION.GetAllClassDetails";
+
+                GeneralParams[] Params = new GeneralParams[8];
+
+                Params[0] = new GeneralParams("inAirLineCode", 100, GeneralParams.GeneralDBTypes.VarChar, allClassReservation.AirLineCode, ParameterDirection.Input);
+
+                Params[1] = new GeneralParams("inTravelCategoryCode", 100, GeneralParams.GeneralDBTypes.VarChar, allClassReservation.TravelCategoryCode, ParameterDirection.Input);
+
+                Params[2] = new GeneralParams("inFromCity", 100, GeneralParams.GeneralDBTypes.VarChar, allClassReservation.FromCity, ParameterDirection.Input);
+
+                Params[3] = new GeneralParams("inToCity", 100, GeneralParams.GeneralDBTypes.VarChar, allClassReservation.ToCity, ParameterDirection.Input);
+
+                Params[4] = new GeneralParams("inReservationDate", 100, GeneralParams.GeneralDBTypes.DateTime, allClassReservation.ReservationDate, ParameterDirection.Input);
+
+                Params[6] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[7] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+
+                ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
+                spResponse = Params[7].OutputValue;
+            }
+            catch (System.Exception ex)
+            {
+                spResponse = CommonHelper.Constants.ResponseCodes.Failed;
+            }
+
+            return ds_Responses;
+        }
     }
 }

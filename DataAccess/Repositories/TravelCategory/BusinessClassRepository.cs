@@ -9,7 +9,7 @@ namespace DataAccess.Repositories.TravelCategory
 {
     public class BusinessClassRepository : ITravelCategoryRepository
     {
-        public IList<FlightReservationDetailsDTO> GetFlightReservationDetails(FirstClassReservationDTO firstClassReservation, out string response)
+        public IList<FlightReservationDetailsDTO> GetFlightReservationDetails(dynamic flightReservation, out string response)
         {
             throw new NotImplementedException();
         }

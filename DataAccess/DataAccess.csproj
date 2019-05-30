@@ -55,6 +55,7 @@
     <Compile Include="Repositories\City\ICityRepository.cs" />
     <Compile Include="Repositories\TravelCategory\BusinessClassRepository.cs" />
     <Compile Include="Repositories\TravelCategory\EconomyClassRepository.cs" />
+    <Compile Include="Repositories\TravelCategory\AllClassRepository.cs" />
     <Compile Include="Repositories\TravelCategory\FirstClassRepository.cs" />
     <Compile Include="Repositories\TravelCategory\ITravelCategoryRepository.cs" />
   </ItemGroup>

@@ -70,6 +70,23 @@ namespace BusinessAPI.Controllers
 
                     default:
                         //All categories
+
+                        #region ALl Class Reservation
+
+                        //1.map request into AllClassReservationDTO 
+                        AllClassReservationDTO allClassReservationtRequest = Mapper.GetAllClassReservationDTO(request);
+
+                        AllClassRepository allClassRepository = new AllClassRepository();
+
+                        //2.Invoke GetFlightReservationDetails via AllClassRepository
+
+                        IList<FlightReservationDetailsDTO> allClassReservationsDetails = allClassRepository.GetFlightReservationDetails(allClassReservationtRequest, out response);
+
+                        //3. set FlightReservationDetails into GetFlightReservationResponse
+                        getFlightReservationResponse.FlightReservationDetails = allClassReservationsDetails;
+
+                        #endregion
+
                         break;
                 }
 

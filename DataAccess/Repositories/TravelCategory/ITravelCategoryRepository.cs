@@ -10,6 +10,6 @@ namespace DataAccess.Repositories.TravelCategory
         /// </summary>
         /// <param name="response"></param>
         /// <returns></returns>
-        IList<FlightReservationDetailsDTO> GetFlightReservationDetails(FirstClassReservationDTO firstClassReservation, out string response);
+        IList<FlightReservationDetailsDTO> GetFlightReservationDetails(dynamic flightReservation, out string response);
     }
 }

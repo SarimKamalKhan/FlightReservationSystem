@@ -19,5 +19,17 @@ namespace Constants
             return firstClassReservationtRequest;
         }
 
+        public static AllClassReservationDTO GetAllClassReservationDTO(GetFlightReservationRequest request)
+        {
+            AllClassReservationDTO allClassReservationtRequest = new AllClassReservationDTO();
+            allClassReservationtRequest.TravelCategoryCode = request.TravelCategoryCode;
+            allClassReservationtRequest.ToCity = request.ToCity;
+            allClassReservationtRequest.FromCity = request.FromCity;
+            allClassReservationtRequest.ReservationDate = request.ReservationDate;
+            allClassReservationtRequest.AirLineCode = request.AirLineCode;
+
+            return allClassReservationtRequest;
+        }
+
     }
 }

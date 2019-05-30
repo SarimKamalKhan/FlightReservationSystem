@@ -8,9 +8,9 @@ using DataTransferObjects.TravelCategories;
 
 namespace DataAccess.Repositories.TravelCategory
 {
-    public class FirstClassRepository : ITravelCategoryRepository
+    public class AllClassRepository : ITravelCategoryRepository
     {
-        private string ClassName = "FirstClassRepository";
+        private string ClassName = "AllClassRepository";
         public IList<FlightReservationDetailsDTO> GetFlightReservationDetails(dynamic flightReservation, out string response)
         {
             string functionName = ".GetFlightReservationDetails";
@@ -21,7 +21,7 @@ namespace DataAccess.Repositories.TravelCategory
             IList<FlightReservationDetailsDTO> flightReservationDetailsDTOs = new List<FlightReservationDetailsDTO>();
             DBManager dbMgr = new DBManager();
 
-            DataSet ds = dbMgr.GetFirstClassReservationDetails(flightReservation, out response);
+            DataSet ds = dbMgr.GetAllClassReservationDetails(flightReservation, out response);
 
             if (response == ResponseCodes.Success)
             {
@@ -54,5 +54,6 @@ namespace DataAccess.Repositories.TravelCategory
 
             return flightReservationDetailsDTOs;
         }
+
     }
 }
