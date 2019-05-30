@@ -110,7 +110,7 @@ namespace DataAccess.DataBaseComponent
         override public DataSet ExecuteSP(string SPName, GeneralParams[] Params)
         {
             string sFunctionName = " + ExecuteSP";
-           
+            OracleConnection Connection = null;
 
             try
             {

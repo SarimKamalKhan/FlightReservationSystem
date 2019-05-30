@@ -23,8 +23,7 @@ namespace BusinessAPI.Controllers
         {
             string methodName = "GetCities";
             IList<CityDTO> cities = new List<CityDTO>();
-            //TODO sarim : read this article https://stackoverflow.com/questions/400135/listt-or-ilistt
-            //remove the comment after reading :p
+
 
             try
             {
