@@ -37,11 +37,16 @@
         url: "@Url.Action("GetCitiesByCountryCode", "BookFlight")",
         success: function (result) {
             console.log(result);
+
+            var citiesList = JSON.parse(JSON.stringify(result));
+
             $('#GetCities').html('');
             var appenddata1 = '<option value="0">--Select City--</option>';
-            for (var x = 0; x < result.response.Cities.length; x++) {
+            for (var x = 0; x < citiesList.length; x++) {
+
+                console.log("city : " + citiesList[x].Id);
                             appenddata1 += (`
-                               <option value="${result.response.Cities[x].Id}">${result.response.Cities[x].Name}</option>
+                               <option value="${citiesList[x].Id}">${citiesList[x].Name}</option>
                            `);
                            }
 
