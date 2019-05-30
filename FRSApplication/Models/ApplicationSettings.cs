@@ -10,7 +10,7 @@ namespace FRSApplication.Models
         /// <summary>
         /// Set Countries in json Form
         /// </summary>
-        public static string Countries { get; set; }
+        public static string Cities { get; set; }
 
         /// <summary>
         ///   Set AirLines in json Form

@@ -29,7 +29,7 @@ namespace FRSApplication
 
             bool isProcessed = APIFacadeProxy.GetAirLinesByCountryCode(countryCode, out jsonCountries);
 
-            Models.ApplicationSettings.Countries = jsonCountries;
+            Models.ApplicationSettings.AirLines = jsonCountries;
         }
 
         private void GetCitiesByCountryCode()
@@ -39,7 +39,7 @@ namespace FRSApplication
 
             bool isProcessed = APIFacadeProxy.GetCitiesByCountryCode(countryCode, out jsonCountries);
 
-            Models.ApplicationSettings.Countries = jsonCountries;
+            Models.ApplicationSettings.Cities = jsonCountries;
         }
     }
 }

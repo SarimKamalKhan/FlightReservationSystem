@@ -31,10 +31,10 @@ namespace FRSApplication.Controllers
 
             try
             {
-                if(!string.IsNullOrEmpty(Models.ApplicationSettings.Countries))
+                if(!string.IsNullOrEmpty(Models.ApplicationSettings.Cities))
                 {
                     //Fetch countries from static list as saved at the time of application start
-                    jsonCities = Models.ApplicationSettings.Countries;
+                    jsonCities = Models.ApplicationSettings.Cities;
 
                 }
                 else
@@ -83,7 +83,7 @@ namespace FRSApplication.Controllers
 
             bool isProcessed = APIFacadeProxy.GetCitiesByCountryCode(countryCode, out jsonCountries);
 
-            Models.ApplicationSettings.Countries = jsonCountries;
+            Models.ApplicationSettings.Cities = jsonCountries;
         }
     }
 }
