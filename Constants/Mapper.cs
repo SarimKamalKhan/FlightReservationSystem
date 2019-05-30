@@ -1,11 +1,7 @@
 ﻿using Constants.Constants;
 using DataTransferObjects.TravelCategories;
 using Models.Requests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Models.Responses;
 
 namespace Constants
 {
@@ -15,13 +11,24 @@ namespace Constants
         {
             FirstClassReservationDTO firstClassReservationtRequest = new FirstClassReservationDTO();
             firstClassReservationtRequest.TravelCategoryCode = TravelCategory.FirstClass;
-            firstClassReservationtRequest.ToCityId = request.ToCityId;
-            firstClassReservationtRequest.FromCityId = request.FromCityId;
-            firstClassReservationtRequest.ArrivalTime = request.ArrivalTime;
-            firstClassReservationtRequest.DepartureTime = request.DepartureTime;
-            firstClassReservationtRequest.AirLineId = request.AirLineId;
+            firstClassReservationtRequest.ToCity = request.ToCity;
+            firstClassReservationtRequest.FromCity = request.FromCity;
+            firstClassReservationtRequest.ReservationDate = request.ReservationDate;
+            firstClassReservationtRequest.AirLineCode = request.AirLineCode;
 
             return firstClassReservationtRequest;
+        }
+
+        public static GetFlightReservationResponse GetFlightReservationResponse(FlightReservationDetailsDTO flightReservationDetailsDTO)
+        {
+            GetFlightReservationResponse getFlightReservationResponse = new GetFlightReservationResponse();
+            getFlightReservationResponse.TravelCategoryCode = flightReservationDetailsDTO.TravelCategoryCode;
+            getFlightReservationResponse.ToCity = flightReservationDetailsDTO.ToCity;
+            getFlightReservationResponse.FromCity = flightReservationDetailsDTO.FromCity;
+            getFlightReservationResponse.ArrivalTime = flightReservationDetailsDTO.ArrivalTime;
+            getFlightReservationResponse.DepartureTime = flightReservationDetailsDTO.DepartureTime;
+
+            return getFlightReservationResponse;
         }
     }
 }

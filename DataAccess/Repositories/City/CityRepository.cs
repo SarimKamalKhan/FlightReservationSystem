@@ -23,31 +23,10 @@ namespace DataAccess.Repositories.City
             DBManager dbMgr = new DBManager();
             DataSet ds = dbMgr.GetCitiesByCountryCode(countryCode, out response);
 
-            //#region File Logging
-
-            //LogManager.GetDBLogger().Info(
-            //        new LogMessage().AddSource(source)
-            //        .AddUserIdentifier(ActorID)
-            //        .AddText("DBManager.GetCitiesByCode returned")
-            //        );
-
-            //#endregion File Logging
-
             if (response == ResponseCodes.Success)
             {
                 if (ds != null && ds.Tables.Count > 0)
                 {
-                    //#region File Logging
-
-                    //LogManager.GetDBLogger().Info(
-                    //    new LogMessage().AddSource(source)
-                    //    .AddUserIdentifier(ActorID)
-                    //    .AddText("DBManager.GetAllBanks returned")
-                    //    .AddText("Row Count", ds.Tables[0].Rows.Count.ToString())
-                    //    );
-
-                    //#endregion File Logging
-
                     foreach (DataRow dr in ds.Tables[0].Rows)
                     {
                         CityDTO cityDTO = new CityDTO();
@@ -55,8 +34,7 @@ namespace DataAccess.Repositories.City
                         cityDTO.Name = Validation.GetEmptyIfNull(dr["Name"]);
                         cityDTO.Id = Validation.GetZeroIfEmpty(dr["ID"]);
                         cityDTO.CountryCode = Validation.GetEmptyIfNull(dr["CountryCode"]);
-                 
-
+                        cityDTO.CityCode = Validation.GetEmptyIfNull(dr["CityCode"]);
                         cityList.Add(cityDTO);
                     }
                 }

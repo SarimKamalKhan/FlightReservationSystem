@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataTransferObjects.TravelCategories
 {
     public class FlightReservationDetailsDTO
     {
-        public int AirLineId { get; set; }
+        public string AirLine { get; set; }
         public string TravelCategoryCode { get; set; }
-        public int FromCityId { get; set; }
-        public int ToCityId { get; set; }
-        public string ArrivalTime { get; set; }
-        public string DepartureTime { get; set; }
+        public string FromCity { get; set; }
+        public string ToCity { get; set; }
+        public DateTime ArrivalTime { get; set; }
+        public DateTime DepartureTime { get; set; }
+        public int AvailableSeats { get; set; }
+       
     }
 }

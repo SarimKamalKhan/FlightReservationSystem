@@ -43,13 +43,22 @@ namespace BusinessAPI.Controllers
                 switch (request.TravelCategoryCode)
                 {
                     case TravelCategory.FirstClass:
-                        
+
+                        #region First Class Reservation
+
+                        //1.map request into FirstClassReservationDTO 
                         FirstClassReservationDTO firstClassReservationtRequest = Mapper.GetFirstClassReservationDTO(request);
 
                         FirstClassRepository firstClassRepository = new FirstClassRepository();
 
+                        //2.Invoke GetFlightReservationDetails via FirstClassRepository
                         FlightReservationDetailsDTO flightReservationDetails = firstClassRepository.GetFlightReservationDetails(firstClassReservationtRequest, out response);
 
+                        //3. map flightReservationDetails into GetFlightReservationResponse
+
+                        getFlightReservationResponse = Mapper.GetFlightReservationResponse(flightReservationDetails); 
+
+                        #endregion
 
                         break;
 
@@ -57,6 +66,10 @@ namespace BusinessAPI.Controllers
                         break;
 
                     case TravelCategory.Business:
+                        break;
+
+                    default:
+                        //All categories
                         break;
                 }
 
