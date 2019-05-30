@@ -33,5 +33,15 @@ namespace Constants
             else
                 return Convert.ToInt32(obj);
         }
+
+        public static DateTime GetMinDateIfNull(object obj)
+        {
+            if (obj == null)
+                return DateTime.MinValue;
+            else if (obj is DBNull)
+                return DateTime.MinValue;
+            else
+                return Convert.ToDateTime(obj);
+        }
     }
 }

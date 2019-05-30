@@ -19,16 +19,5 @@ namespace Constants
             return firstClassReservationtRequest;
         }
 
-        public static GetFlightReservationResponse GetFlightReservationResponse(FlightReservationDetailsDTO flightReservationDetailsDTO)
-        {
-            GetFlightReservationResponse getFlightReservationResponse = new GetFlightReservationResponse();
-            getFlightReservationResponse.TravelCategoryCode = flightReservationDetailsDTO.TravelCategoryCode;
-            getFlightReservationResponse.ToCity = flightReservationDetailsDTO.ToCity;
-            getFlightReservationResponse.FromCity = flightReservationDetailsDTO.FromCity;
-            getFlightReservationResponse.ArrivalTime = flightReservationDetailsDTO.ArrivalTime;
-            getFlightReservationResponse.DepartureTime = flightReservationDetailsDTO.DepartureTime;
-
-            return getFlightReservationResponse;
-        }
     }
 }

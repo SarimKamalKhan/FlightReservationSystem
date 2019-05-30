@@ -1,4 +1,5 @@
 ﻿using DataTransferObjects.TravelCategories;
+using System.Collections.Generic;
 
 namespace DataAccess.Repositories.TravelCategory
 {
@@ -9,6 +10,6 @@ namespace DataAccess.Repositories.TravelCategory
         /// </summary>
         /// <param name="response"></param>
         /// <returns></returns>
-        FlightReservationDetailsDTO GetFlightReservationDetails(FirstClassReservationDTO firstClassReservation, out string response);
+        IList<FlightReservationDetailsDTO> GetFlightReservationDetails(FirstClassReservationDTO firstClassReservation, out string response);
     }
 }

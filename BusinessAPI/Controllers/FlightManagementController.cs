@@ -52,11 +52,11 @@ namespace BusinessAPI.Controllers
                         FirstClassRepository firstClassRepository = new FirstClassRepository();
 
                         //2.Invoke GetFlightReservationDetails via FirstClassRepository
-                        FlightReservationDetailsDTO flightReservationDetails = firstClassRepository.GetFlightReservationDetails(firstClassReservationtRequest, out response);
 
-                        //3. map flightReservationDetails into GetFlightReservationResponse
+                        IList<FlightReservationDetailsDTO> flightReservationsDetails = firstClassRepository.GetFlightReservationDetails(firstClassReservationtRequest, out response);
 
-                        getFlightReservationResponse = Mapper.GetFlightReservationResponse(flightReservationDetails); 
+                        //3. set FlightReservationDetails into GetFlightReservationResponse
+                        getFlightReservationResponse.FlightReservationDetails = flightReservationsDetails;
 
                         #endregion
 
