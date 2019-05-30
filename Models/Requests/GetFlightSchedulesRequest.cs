@@ -2,7 +2,7 @@
 
 namespace Models.Requests
 {
-    public class GetFlightReservationRequest
+    public class GetFlightSchedulesRequest
     {
         public  string AirLineCode { get; set; }
         public  string TravelCategoryCode { get; set; }

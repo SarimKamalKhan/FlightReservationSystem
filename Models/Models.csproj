@@ -42,9 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Requests\GetFlightReservationRequest.cs" />
+    <Compile Include="Requests\GetFlightSchedulesRequest.cs" />
     <Compile Include="Responses\GetCitiesResponse.cs" />
-    <Compile Include="Responses\GetFlightReservationResponse.cs" />
+    <Compile Include="Responses\GetFlightSchedulesResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

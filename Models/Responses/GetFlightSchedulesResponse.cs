@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Models.Responses
 {
-    public class GetFlightReservationResponse
+    public class GetFlightSchedulesResponse
     {
         public IList<FlightReservationDetailsDTO> FlightReservationDetails { get; set; }
 
-        public GetFlightReservationResponse()
+        public GetFlightSchedulesResponse()
         {
             FlightReservationDetails = new List<FlightReservationDetailsDTO>();
         }
