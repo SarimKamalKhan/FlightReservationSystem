@@ -27,19 +27,13 @@ namespace DataAccess.DataBaseComponent
             {
                 if (Connection == null)
                 {
-                    lock (Connection)
-                    {
-                        if (Connection == null)
-                        {
-                            Connection = new OracleConnection(ConnectionString);
-                        }
-                    }
+                    Connection = new OracleConnection(ConnectionString);
                 }
+              
                 return Connection;
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
                 throw ex;
             }
         }
@@ -54,7 +48,7 @@ namespace DataAccess.DataBaseComponent
 
                 OracleDataAdapter Adapter = new OracleDataAdapter(Command);
                 DataSet ds = new DataSet();
-                //Logger.Invoke(LogLevels.TraceDetail, ClassName + sFunctionName, "Filling Dataset.");
+
                 Adapter.Fill(ds);
                 SetParameters(ref Params, Command);
                 CloseConnection(Connection);
@@ -62,7 +56,6 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
                 CloseConnection(Connection);
                 throw ex;
             }
@@ -88,16 +81,16 @@ namespace DataAccess.DataBaseComponent
             {
                 Connection = OpenConnection();
                 OracleCommand Command = CreateCommand(Connection, SPName, Params, CommandType.StoredProcedure);
-                // Logger.Invoke(LogLevels.TraceDetail, sClassName + sFunctionName, "Calling ExecuteNonQuery");
+        
                 int Rows_Affected = Command.ExecuteNonQuery();
                 SetParameters(ref Params, Command);
                 CloseConnection(Connection);
-                //Logger.Invoke(LogLevels.TraceDetail, sClassName + sFunctionName, "Closed connection");
+          
                 return Rows_Affected;
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
+               
                 CloseConnection(Connection);
                 throw ex;
             }
@@ -118,7 +111,7 @@ namespace DataAccess.DataBaseComponent
                 OracleCommand Command = CreateCommand(Connection, SPName, Params, CommandType.StoredProcedure);
                 OracleDataAdapter Adapter = new OracleDataAdapter(Command);
                 DataSet ds = new DataSet();
-                //                Logger.Invoke(LogLevels.TraceDetail, sClassName + sFunctionName, "Filling Dataset");
+
                 Adapter.Fill(ds);
                 SetParameters(ref Params, Command);
                 CloseConnection(Connection);
@@ -126,7 +119,6 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
                 CloseConnection(Connection);
                 throw ex;
             }
@@ -147,7 +139,7 @@ namespace DataAccess.DataBaseComponent
                 Connection = OpenConnection();
                 OracleCommand Command = new OracleCommand(SpName, Connection);
                 Command.CommandType = CommandType.StoredProcedure;
-                //Logger.Invoke(LogLevels.TraceDetail, ClassName + sFunctionName, "Calling ExecuteSPParamQuery");
+           
                 OracleCommandBuilder.DeriveParameters(Command);
                 foreach (OracleParameter param in Command.Parameters)
                 {
@@ -157,7 +149,6 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName, ex);
                 CloseConnection(Connection);
                 throw ex;
             }
@@ -180,7 +171,7 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
+               
                 throw ex;
             }
         }
@@ -208,7 +199,7 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
+               
                 throw ex;
             }
         }
@@ -284,7 +275,7 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
+               
                 throw ex;
             }
         }
@@ -325,7 +316,7 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //ExpLogger.Invoke(ClassName + sFunctionName, ex);
+               
                 throw ex;
             }
         }

@@ -31,21 +31,21 @@ namespace BusinessAPI.Controllers
                 CityRepository cityRepository = new CityRepository();
 
                 //temporary commenting
-                //getCitiesResponse.Cities = cityRepository.GetByCountryCode(countryCode, out response);
+                getCitiesResponse.Cities = cityRepository.GetByCountryCode(countryCode, out response);
 
-                /////////////////Testing
-                CityDTO test = new CityDTO();
-                test.Id = 1;
-                test.Name = "Karachi";
+                ///////////////////Testing
+                //CityDTO test = new CityDTO();
+                //test.Id = 1;
+                //test.Name = "Karachi";
 
-                getCitiesResponse.Cities.Add(test);
+                //getCitiesResponse.Cities.Add(test);
 
-                test.Id = 2;
-                test.Name = "Lahore";
+                //test.Id = 2;
+                //test.Name = "Lahore";
 
-                getCitiesResponse.Cities.Add(test);
+                //getCitiesResponse.Cities.Add(test);
 
-                response = ResponseCodes.Success;
+                //response = ResponseCodes.Success;
 
                 /////////////////////
 

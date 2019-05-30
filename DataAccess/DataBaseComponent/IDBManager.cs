@@ -4,15 +4,8 @@ using System.Data;
 
 namespace DataAccess.DataBaseComponent
 {
-    //public delegate void LoggingDelegate(string LogLevel, string sClassName, string Message);
-
-    //public delegate void LoggingExceptionDelegate(string ClassName, Exception ex);
-
     public abstract class IDBManager
     {
-        //public LoggingExceptionDelegate ExpLogger;
-        //public LoggingDelegate Logger;
-
         /// <summary>
         /// Exectue a direct query on database
         /// </summary>

@@ -142,8 +142,10 @@ E:\Github\Sarim\FRSApplication\bin\roslyn\vbc.rsp
 E:\Github\Sarim\FRSApplication\bin\roslyn\VBCSCompiler.exe
 E:\Github\Sarim\FRSApplication\bin\roslyn\VBCSCompiler.exe.config
 E:\Github\Sarim\FRSApplication\bin\Antlr3.Runtime.dll
+E:\Github\Sarim\FRSApplication\bin\Constants.dll
 E:\Github\Sarim\FRSApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\Github\Sarim\FRSApplication\bin\Microsoft.Web.Infrastructure.dll
+E:\Github\Sarim\FRSApplication\bin\Models.dll
 E:\Github\Sarim\FRSApplication\bin\Newtonsoft.Json.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.Helpers.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.Mvc.dll
@@ -153,6 +155,9 @@ E:\Github\Sarim\FRSApplication\bin\System.Web.WebPages.Deployment.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.WebPages.dll
 E:\Github\Sarim\FRSApplication\bin\System.Web.WebPages.Razor.dll
 E:\Github\Sarim\FRSApplication\bin\WebGrease.dll
+E:\Github\Sarim\FRSApplication\bin\DataTransferObjects.dll
+E:\Github\Sarim\FRSApplication\bin\Constants.pdb
+E:\Github\Sarim\FRSApplication\bin\Models.pdb
 E:\Github\Sarim\FRSApplication\bin\System.Web.Helpers.xml
 E:\Github\Sarim\FRSApplication\bin\System.Web.Mvc.xml
 E:\Github\Sarim\FRSApplication\bin\System.Web.Optimization.xml
@@ -163,14 +168,9 @@ E:\Github\Sarim\FRSApplication\bin\System.Web.WebPages.Razor.xml
 E:\Github\Sarim\FRSApplication\bin\Newtonsoft.Json.xml
 E:\Github\Sarim\FRSApplication\bin\Antlr3.Runtime.pdb
 E:\Github\Sarim\FRSApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Github\Sarim\FRSApplication\bin\DataTransferObjects.pdb
+E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csprojAssemblyReference.cache
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csproj.CoreCompileInputs.cache
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csproj.CopyComplete
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.dll
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.pdb
-E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csprojAssemblyReference.cache
-E:\Github\Sarim\FRSApplication\bin\Constants.dll
-E:\Github\Sarim\FRSApplication\bin\Models.dll
-E:\Github\Sarim\FRSApplication\bin\DataTransferObjects.dll
-E:\Github\Sarim\FRSApplication\bin\Constants.pdb
-E:\Github\Sarim\FRSApplication\bin\Models.pdb
-E:\Github\Sarim\FRSApplication\bin\DataTransferObjects.pdb

@@ -7,7 +7,7 @@ namespace Models.Responses
 {
     public class GetCitiesResponse
     {
-        public List<CityDTO> Cities { get; set; }
+        public IList<CityDTO> Cities { get; set; }
 
         public GetCitiesResponse()
         {

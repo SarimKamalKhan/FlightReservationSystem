@@ -19,7 +19,6 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //throw new Exception(ex.ToString());
                 throw ex;
             }
         }
@@ -38,7 +37,7 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //throw new Exception(ex.ToString());
+               
                 throw ex;
             }
         }
@@ -53,7 +52,6 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                //throw new Exception(ex.ToString());
                 throw ex;
             }
         }

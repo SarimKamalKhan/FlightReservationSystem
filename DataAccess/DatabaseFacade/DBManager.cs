@@ -11,35 +11,25 @@ namespace DataAccess.DatabaseFacade
             string functionName = ".GetCitiesByCode";
             string source = ClassName + functionName;
             spResponse = string.Empty;
+            DataSet ds_Responses = new DataSet();
+            try
+            {
 
-            string SPName = "PKG_CITY.GetByCountryCode";
+                string SPName = "PKG_CITY.GetByCountryCode";
 
-            GeneralParams[] Params = new GeneralParams[3];
+                GeneralParams[] Params = new GeneralParams[3];
 
-            Params[0] = new GeneralParams("inCode", 100, GeneralParams.GeneralDBTypes.VarChar, countryCode, ParameterDirection.Input);
-            Params[1] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
-            Params[2] = new GeneralParams("outResponseCode", 2, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+                Params[0] = new GeneralParams("inCode", 100, GeneralParams.GeneralDBTypes.VarChar, countryCode, ParameterDirection.Input);
+                Params[1] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[2] = new GeneralParams("outResponseCode", 2, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
 
-            //#region File Logging
-            //LogManager.GetDBLogger().Info(
-            //    new LogMessage().AddSource(source)
-            //    .AddUserIdentifier(ActorID)
-            //    .AddText("Executing SP", SPName)
-            //    );
-            //#endregion File Logging
-
-            DataSet ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
-            spResponse = Params[3].OutputValue;
-
-
-            //#region File Logging
-            //LogManager.GetDBLogger().Info(
-            //    new LogMessage().AddSource(source)
-            //    .AddUserIdentifier(ActorID)
-            //    .AddText("SP reutrned")
-            //    .AddText("Response", spResponse));
-
-            //#endregion File Logging
+                ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
+                spResponse = Params[3].OutputValue;
+            }
+            catch (System.Exception ex)
+            {
+                spResponse = CommonHelper.Constants.ResponseCodes.Failed;
+            }
 
             return ds_Responses;
         }
