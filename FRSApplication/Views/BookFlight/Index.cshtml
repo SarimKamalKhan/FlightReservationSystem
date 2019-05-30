@@ -5,8 +5,8 @@
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-
+<script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+<link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
 
 <script>
 
@@ -17,16 +17,31 @@
         success: function (result) {
             console.log(result);
 
-            $('#cities').html('');
+            //To city AJAX CALL
+            $('#to_cities').html('');
 
             var options = '';
             options += '<option value="">--Select City--</option>';
             for (var i = 0; i < result.Cities.length; i++) {
 
-                debugger;
+
                 options += '<option value="' + result.Cities[i].CityCode + '">' + result.Cities[i].Name + '</option>';
             }
-            $('#cities').append(options);
+            $('#to_cities').append(options);
+
+
+
+            //From city AJAX CALL
+             $('#from_cities').html('');
+
+            var options = '';
+            options += '<option value="">--Select City--</option>';
+            for (var i = 0; i < result.Cities.length; i++) {
+
+
+                options += '<option value="' + result.Cities[i].CityCode + '">' + result.Cities[i].Name + '</option>';
+            }
+            $('#from_cities').append(options);
 
         },
         error: function (xhr,status, exception) {
@@ -38,41 +53,83 @@
      $.ajax({
         type: "POST",
         dataType: 'JSON',
-        url: "@Url.Action("GetAirLine", "BookFlight")",
-        success: function (GetAirLine) {
-            console.log(GetAirLine);
-            $('#GetAirLine').html('');
-            var appenddata1 = '<option value="0">--Select Airline--</option>';
-                        for (var x = 0; x < GetAirLine.length; x++) {
-                            appenddata1 += (`
-                               <option value="${GetAirLine[x]}">${GetAirLine[x]}</option>
-                           `);
-                           }
-            $("#GetAirLine").append(appenddata1);
+        url: "@Url.Action("GetAirLineByCountryCode", "BookFlight")",
+        success: function (response) {
+            console.log(response);
+            //$('#GetAirLine').html('');
+            //var appenddata1 = '<option value="0">--Select Airline--</option>';
+            //            for (var x = 0; x < GetAirLine.length; x++) {
+            //                appenddata1 += (`
+            //                   <option value="${GetAirLine[x]}">${GetAirLine[x]}</option>
+            //               `);
+            //               }
+            //$("#GetAir                Line").append(appenddata1);
+
+              $('#GetAirLine').html('');
+
+            var options = '';
+            options += '<option value="">--Select Airline--</option>';
+            for (var i = 0; i < response.AirLines.length; i++) {
+
+
+                options += '<option value="' + response.AirLines[i].Code + '">' + response.AirLines[i].Name + '</option>';
+            }
+            $('#GetAirLine').append(options);
 
         },
         error: function (xhr,status, exception) {
             console.log("Error: " + exception + ", Status: " + status);
         }
-    });
+     });
+
+
+    //Travel Catogory AJAX Call
+      $.ajax({
+        type: "POST",
+        dataType: 'JSON',
+        url: "@Url.Action("GetTravelCategory", "BookFlight")",
+        success: function (response) {
+            console.log(response);
+            $('#GetTravelCat').html('');
+            var appenddata1 = '<option value="0">--Select Category--</option>';
+                        for (var x = 0; x < response.length; x++) {
+                            appenddata1 += (`
+                               <option value="${response[x]}">${response[x]}</option>
+                           `);
+                           }
+              $("#GetTravelCat").append(appenddata1);
+             },
+        error: function (xhr,status, exception) {
+            console.log("Error: " + exception + ", Status: " + status);
+        }
+     });
 </script>
 
 
 <div id="GetCitiesRow" style="margin-top:50px">
-    <label class="col-sm-1">City</label>
-    <div class="col-sm-4" style="color:black">
-        <select id="cities" name="GetCities" class="form-control">
+    <label class="col-sm-1 col-md-1">To City</label>
+    <div class="col-sm-5 col-md-5" style="color:black">
+        <select id="to_cities" name="GetCities" class="form-control">
             <option value="0">--Select City--</option>
         </select>
 
     </div>
 </div>
 
+<div id="GetCitiesRow" style="margin-top:50px">
+    <label class="col-sm-1 col-md-1">From City</label>
+    <div class="col-sm-5 col-md-5" style="color:black">
+        <select id="from_cities" name="GetCities" class="form-control">
+            <option value="0">--Select City--</option>
+        </select>
 
+    </div>
+</div>
 
-<div id="GetAirLineRow" style="margin-top:50px">
-    <label class="col-sm-1">AirLine</label>
-    <div class="col-sm-4" style="color:black">
+<br />
+<div id="GetAirLineRow" style="margin-top:70px">
+    <label class="col-sm-1 col-md-1">AirLine</label>
+    <div class="col-sm-5 col-md-5" style="color:black">
         <select id="GetAirLine" name="GetAirLine" class="form-control">
             <option value="0">--Select Airline--</option>
         </select>
@@ -80,15 +137,60 @@
     </div>
 </div>
 
+<div id="GetTravelCatRow" style="margin-top:70px">
+    <label class="col-sm-1 col-md-1">Travel Class</label>
+    <div class="col-sm-5 col-md-5" style="color:black">
+        <select id="GetTravelCat" name="GetTravelCat" class="form-control">
+            <option value="0">--Select Category--</option>
+        </select>
 
+    </div>
+</div>
 
 <br />
-<br /><br />
+
+
+<div style="margin-top:50px">
+    <div class="col-sm-6 col-md-6" ">
+        <label class="col-sm-1 col-md-1">To Date</label>
+
+        <div class="col-sm-5 col-md-5">
+            <input id="To_date" type="text">
+
+            <script>
+                var datepicker = new ej.calendars.DatePicker({ width: "255px" });
+                datepicker.appendTo('#To_date');
+            </script>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6" ">
+        <label class="col-sm-1 col-md-1">From Date</label>
+        <div class="col-sm-5 col-md-5">
+            <input id="From_date" type="text">
+
+            <script>
+                var datepicker = new ej.calendars.DatePicker({ width: "255px" });
+                datepicker.appendTo('#From_date');
+            </script>
+        </div>
+    </div>
+</div>
+
+<br />
+<div style="margin-top:100px">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <a href="#" class="btn btn-success btn-lg">Find Flight &raquo;</a>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <a href="/FRSApplication" class="btn btn-danger btn-lg">GoBack to Main &raquo;</a>
+    </div>
+</div>
+
 <br />
 
 
 
-<div class="col-lg-4">
-    <a href="/FRSApplication" class="btn btn-success btn-lg">GoBack to Main &raquo;</a>
-</div><br />
+
 

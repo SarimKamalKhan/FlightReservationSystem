@@ -155,8 +155,6 @@ E:\Github\Sarim\BusinessAPI\bin\Antlr3.Runtime.pdb
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.csproj.CopyComplete
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.dll
 E:\Github\Sarim\BusinessAPI\obj\Debug\BusinessAPI.pdb
-C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.csprojAssemblyReference.cache
-C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.csproj.CoreCompileInputs.cache
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\BusinessAPI.dll.config
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\BusinessAPI.dll
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\BusinessAPI.pdb
@@ -246,6 +244,8 @@ C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\Bus
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\System.Web.Optimization.xml
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\bin\Antlr3.Runtime.pdb
+C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.csprojAssemblyReference.cache
+C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.csproj.CoreCompileInputs.cache
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.csproj.CopyComplete
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.dll
 C:\Users\Sarim.Kamal\Desktop\FlightReservationSystem\FlightReservationSystem\BusinessAPI\obj\Debug\BusinessAPI.pdb

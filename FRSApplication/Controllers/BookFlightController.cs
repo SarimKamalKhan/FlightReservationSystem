@@ -55,25 +55,36 @@ namespace FRSApplication.Controllers
         }
 
         [HttpPost]
-        [Route("/BookFlight/GetAirLine")]
-        public JsonResult GetAirLine()
+        public JsonResult GetAirLineByCountryCode()
         {
-            List<string> AirLine = new List<string>();
-            AirLine.Add("PIA");
-            AirLine.Add("Serene");
-            AirLine.Add("AirBlue");
+            string actionName = ".GetAirLineByCountryCode";
+            string source = ControllerName + actionName;
+            string jsonAirlines = string.Empty;
+            GetAirlinesResponse getAirlineResponse = new GetAirlinesResponse();
 
-            string countryCode = "PK";
+            try
+            {
+                if (!string.IsNullOrEmpty(Models.ApplicationSettings.AirLines))
+                {
+                    //Fetch countries from static list as saved at the time of application start
+                    jsonAirlines = Models.ApplicationSettings.AirLines;
 
-            //TransactionResultDTO tempTranResDTO = new TransactionResultDTO();
+                }
+                else
+                {
+                    //Fetch from DB and set on static list
+                    GetAirlines();
+                }
 
-            string serializedTransaction = JsonConvert.SerializeObject(countryCode);
+                if (!string.IsNullOrEmpty(jsonAirlines))
+                    getAirlineResponse = JsonConvert.DeserializeObject<GetAirlinesResponse>(jsonAirlines);
 
-           
-            //having issue in it
-            // tempTranResDTO = APIProxyController.GetCitiesByCountryCode(serializedTransaction);
-
-            return Json(AirLine, JsonRequestBehavior.AllowGet);
+                return Json(getAirlineResponse, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(getAirlineResponse, JsonRequestBehavior.AllowGet);
+            }
         }
 
         private void GetCities()
@@ -84,6 +95,27 @@ namespace FRSApplication.Controllers
             bool isProcessed = APIFacadeProxy.GetCitiesByCountryCode(countryCode, out jsonCountries);
 
             Models.ApplicationSettings.Cities = jsonCountries;
+        }
+
+        private void GetAirlines()
+        {
+            string countryCode = ConfigurationManager.AppSettings["CountryCode"];
+            string jsonCountries = string.Empty;
+
+            bool isProcessed = APIFacadeProxy.GetAirLinesByCountryCode(countryCode, out jsonCountries);
+
+            Models.ApplicationSettings.AirLines = jsonCountries;
+        }
+
+
+        [HttpPost]
+        public JsonResult GetTravelCategory()
+        {
+            List<string> TravelCategory = new List<string>();
+            TravelCategory.Add("First");
+            TravelCategory.Add("Business");
+            TravelCategory.Add("Economy");
+            return Json(TravelCategory, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace FRSApplication.Models
     public static class ApplicationSettings
     {
         /// <summary>
-        /// Set Countries in json Form
+        /// Set Cities in json Form
         /// </summary>
         public static string Cities { get; set; }
 
@@ -17,5 +17,10 @@ namespace FRSApplication.Models
         /// </summary>
 
         public static string AirLines { get; set; }
+
+
     }
+
+
+
 }
