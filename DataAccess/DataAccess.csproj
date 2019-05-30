@@ -51,6 +51,8 @@
     <Compile Include="DatabaseFacade\DBComponent.cs" />
     <Compile Include="DatabaseFacade\DBManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AirLine\AirlineRepository.cs" />
+    <Compile Include="Repositories\AirLine\IAirlineRepository.cs" />
     <Compile Include="Repositories\City\CityRepository.cs" />
     <Compile Include="Repositories\City\ICityRepository.cs" />
     <Compile Include="Repositories\TravelCategory\BusinessClassRepository.cs" />

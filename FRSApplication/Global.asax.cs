@@ -19,6 +19,17 @@ namespace FRSApplication
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             GetCitiesByCountryCode();
+            GetAirLinesByCountryCode();
+        }
+
+        private void GetAirLinesByCountryCode()
+        {
+            string countryCode = ConfigurationManager.AppSettings["CountryCode"];
+            string jsonCountries = string.Empty;
+
+            bool isProcessed = APIFacadeProxy.GetAirLinesByCountryCode(countryCode, out jsonCountries);
+
+            Models.ApplicationSettings.Countries = jsonCountries;
         }
 
         private void GetCitiesByCountryCode()

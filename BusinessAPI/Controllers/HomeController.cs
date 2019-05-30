@@ -1,4 +1,5 @@
 ﻿using CommonHelper.Constants;
+using DataAccess.Repositories.AirLine;
 using DataAccess.Repositories.City;
 using DataTransferObjects;
 using Models.Responses;
@@ -57,6 +58,34 @@ namespace BusinessAPI.Controllers
             catch (Exception ex)
             {
                  return this.Request.CreateResponse<GetCitiesResponse>(HttpStatusCode.InternalServerError, getCitiesResponse);
+            }
+        }
+
+        
+
+        [HttpGet]
+        [Route("GetAirlines/{countryCode}")]
+        public HttpResponseMessage GetAirlines(string countryCode)
+        {
+            string methodName = "GetAirlines";
+            GetAirlinesResponse getAirlineResponse = new GetAirlinesResponse();
+
+            try
+            {
+                string response = string.Empty;
+                AirLineRepository airlineRepository = new AirLineRepository();
+
+                //temporary commenting
+                getAirlineResponse.AirLines = airlineRepository.GetByCountryCode(countryCode, out response);
+
+                if (response == ResponseCodes.Success)
+                    return this.Request.CreateResponse<GetAirlinesResponse>(HttpStatusCode.OK, getAirlineResponse);
+                else
+                    return this.Request.CreateResponse<GetAirlinesResponse>(HttpStatusCode.BadRequest, getAirlineResponse);
+            }
+            catch (Exception ex)
+            {
+                return this.Request.CreateResponse<GetAirlinesResponse>(HttpStatusCode.InternalServerError, getAirlineResponse);
             }
         }
     }

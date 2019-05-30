@@ -129,9 +129,56 @@ namespace FRSApplication
 
             return isProcessed;
         }
+
+
+        public static bool GetAirLinesByCountryCode(string countryCode, out string responseJSON)
+        {
+            string actionName = ".GetAirLinesByCountryCode";
+            string source = ClassName + actionName;
+            responseJSON = string.Empty;
+            bool isProcessed = false;
+
+            string url = "Home/GetAirlines";
+            string httpMethod = "GET";
+
+            try
+            {
+                string requestJSON = JsonConvert.SerializeObject(countryCode, Formatting.Indented);
+                //Set request params for get apis
+                Dictionary<string, string> requestParams = new Dictionary<string, string>();
+                requestParams.Add("countryCode", countryCode);
+
+                var apiResponse = APIConsumer(url, httpMethod, null, requestParams, requestJSON);
+
+                responseJSON = apiResponse.Content.ReadAsStringAsync().Result;
+
+                GetAirlinesResponse payResponse = JsonConvert.DeserializeObject<GetAirlinesResponse>(responseJSON);
+
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    isProcessed = true;
+                }
+
+                else
+                {
+                    isProcessed = false;
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                isProcessed = false;
+            }
+
+            return isProcessed;
+        }
     }
 
-    public class SSLValidator
+ 
+
+public class SSLValidator
     {
         private static RemoteCertificateValidationCallback _orgCallback;
 

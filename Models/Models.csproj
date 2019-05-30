@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Requests\GetFlightReservationRequest.cs" />
+    <Compile Include="Responses\GetAirlinesResponse.cs" />
     <Compile Include="Responses\GetCitiesResponse.cs" />
     <Compile Include="Responses\GetFlightReservationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

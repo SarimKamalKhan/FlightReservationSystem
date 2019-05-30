@@ -35,6 +35,35 @@ namespace DataAccess.DatabaseFacade
             return ds_Responses;
         }
 
+
+        public DataSet GetAirlinesByCountryCode(string countryCode, out string spResponse)
+        {
+            string functionName = ".GetAirlinesByCountryCode";
+            string source = ClassName + functionName;
+            spResponse = string.Empty;
+            DataSet ds_Responses = new DataSet();
+            try
+            {
+
+                string SPName = "PKG_AIRLINES.GetAirlinesByCountryCode";
+
+                GeneralParams[] Params = new GeneralParams[3];
+
+                Params[0] = new GeneralParams("inCode", 100, GeneralParams.GeneralDBTypes.VarChar, countryCode, ParameterDirection.Input);
+                Params[1] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[2] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+
+                ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
+                spResponse = Params[2].OutputValue;
+            }
+            catch (System.Exception ex)
+            {
+                spResponse = CommonHelper.Constants.ResponseCodes.Failed;
+            }
+
+            return ds_Responses;
+        }
+
         public DataSet GetFirstClassReservationDetails(FirstClassReservationDTO firstClassReservation, out string spResponse)
         {
             string functionName = ".GetFlightReservationDetails";
