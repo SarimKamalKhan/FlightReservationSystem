@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="AirlineDTO.cs" />
     <Compile Include="CityDTO.cs" />
-    <Compile Include="GetCitiesResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionResultDTO.cs" />
     <Compile Include="TravelCategories\FirstClassReservationDTO.cs" />

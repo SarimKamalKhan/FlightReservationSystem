@@ -9,10 +9,10 @@
 
 
 <script>
-  $.ajax({
+    @*$.ajax({
         type: "POST",
         dataType: 'JSON',
-        url: "@Url.Action("GetCitiesName", "BookFlight")",
+        url: "@Url.Action("GetCitiesByCountryCode", "BookFlight")",
         success: function (GetCities) {
             console.log(GetCities);
             $('#GetCities').html('');
@@ -28,7 +28,33 @@
         error: function (xhr,status, exception) {
             console.log("Error: " + exception + ", Status: " + status);
         }
+    });*@
+
+
+    $.ajax({
+        type: "POST",
+        dataType: 'JSON',
+        url: "@Url.Action("GetCitiesByCountryCode", "BookFlight")",
+        success: function (result) {
+            console.log(result);
+            $('#GetCities').html('');
+            var appenddata1 = '<option value="0">--Select City--</option>';
+            for (var x = 0; x < result.response.Cities.length; x++) {
+                            appenddata1 += (`
+                               <option value="${result.response.Cities[x].Id}">${result.response.Cities[x].Name}</option>
+                           `);
+                           }
+
+            console.log(appenddata1);
+
+            $("#GetCities").append(appenddata1);
+
+        },
+        error: function (xhr,status, exception) {
+            console.log("Error: " + exception + ", Status: " + status);
+        }
     });
+
 
      $.ajax({
         type: "POST",

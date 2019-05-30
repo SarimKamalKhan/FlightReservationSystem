@@ -167,3 +167,10 @@ E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csproj.CoreCompileInputs
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csproj.CopyComplete
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.dll
 E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.pdb
+E:\Github\Sarim\FRSApplication\obj\Debug\FRSApplication.csprojAssemblyReference.cache
+E:\Github\Sarim\FRSApplication\bin\Constants.dll
+E:\Github\Sarim\FRSApplication\bin\Models.dll
+E:\Github\Sarim\FRSApplication\bin\DataTransferObjects.dll
+E:\Github\Sarim\FRSApplication\bin\Constants.pdb
+E:\Github\Sarim\FRSApplication\bin\Models.pdb
+E:\Github\Sarim\FRSApplication\bin\DataTransferObjects.pdb
