@@ -1,25 +1,20 @@
-﻿using DataTransferObjects;
+﻿using Models.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Web;
-using System.Web.Mvc;
 
-namespace FRSApplication.Controllers
+namespace FRSApplication
 {
-    public class APIProxyController : Controller
+    public static class APIFacadeProxy
     {
-
-        private string ClassName = "APIProxy";
-
-        public HttpResponseMessage APIConsumer(string URL, string HttpMethod, Dictionary<string, string> Header, Dictionary<string, string> RequestParams, string JSON, MultipartFormDataContent MultipartContent = null)
+        private static string ClassName = "APIFacadeProxy";
+        public static HttpResponseMessage APIConsumer(string URL, string HttpMethod, Dictionary<string, string> Header, Dictionary<string, string> RequestParams, string JSON, MultipartFormDataContent MultipartContent = null)
         {
             HttpResponseMessage Response = new HttpResponseMessage();
             HttpClient Client = new HttpClient();
@@ -91,58 +86,50 @@ namespace FRSApplication.Controllers
             return Response;
         }
 
-        public CityDTO GetCitiesByCountryCode(string Request)
+        public static bool GetCitiesByCountryCode(string countryCode, out string responseJSON)
         {
-            string ActionName = ".GetCitiesByCountryCode";
-            string Source = ClassName + ActionName;
-            string ResponseJSON = string.Empty;
-            TransactionResultsDTO Result = new TransactionResultsDTO();
+            string actionName = ".GetCitiesByCountryCode";
+            string source = ClassName + actionName;
+            responseJSON = string.Empty;
+            bool isProcessed = false;
 
-            string URL = "businessapi/api/Home/GetCities/";
-            string HttpMethod = "POST";
+            string url = "Home/GetCities";
+            string httpMethod = "GET";
 
             try
             {
-                string RequestJSON = JsonConvert.SerializeObject(Request, Formatting.Indented);
+                string requestJSON = JsonConvert.SerializeObject(countryCode, Formatting.Indented);
+                //Set request params for get apis
+                Dictionary<string, string> requestParams = new Dictionary<string, string>();
+                requestParams.Add("countryCode", countryCode);
 
-                var Response = APIConsumer(URL, HttpMethod, null, null, RequestJSON);
+                var apiResponse = APIConsumer(url, httpMethod, null,requestParams, requestJSON);
 
-                ResponseJSON = Response.Content.ReadAsStringAsync().Result;
+                responseJSON = apiResponse.Content.ReadAsStringAsync().Result;
 
-                GetCitiesResponseDTO response = JsonConvert.DeserializeObject<GetCitiesResponseDTO>(ResponseJSON);
+                GetCitiesResponse payResponse = JsonConvert.DeserializeObject<GetCitiesResponse>(responseJSON);
 
-                if (response != null && response.ResponseCode == "00")
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
                 {
-                    Result.IsSuccessful = true;
-                    Result.ResponseCode = response.ResponseCode;
-                    Result.ResponseDescription = response.ResponseMessage;
+                    isProcessed = true;
                 }
+
                 else
                 {
-                    Result.ResponseCode = "99";
+                    isProcessed = false;
                 }
 
+             
             }
 
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                //#region File Logging
-
-                //LogManager.GetAutoStatusUpdate_WinLogger().Error(
-                //    new LogMessage().AddSource(Source)
-                //        .AddText("Exception", Ex.ToString())
-                //);
-
-                //#endregion File Logging
-
-                Result.IsSuccessful = false;
+                isProcessed = false;
             }
 
-            return Result;
+            return isProcessed;
         }
-
     }
-
 
     public class SSLValidator
     {

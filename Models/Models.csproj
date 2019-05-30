@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Requests\GetFlightReservationRequest.cs" />
+    <Compile Include="Responses\GetCitiesResponse.cs" />
     <Compile Include="Responses\GetFlightReservationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
+      <Project>{D0498E83-4917-42CB-9A68-D8179E09D313}</Project>
+      <Name>DataTransferObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

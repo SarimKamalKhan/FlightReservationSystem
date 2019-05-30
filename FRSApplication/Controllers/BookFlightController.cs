@@ -5,13 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
-using static DataTransferObjects.TransactionResultsDTO;
 
 namespace FRSApplication.Controllers
 {
 
     public class BookFlightController : Controller
     {
+        private string ControllerName = "BookFlight";
+
         // GET: BookFlight
         public ActionResult Index()
         {
@@ -21,18 +22,52 @@ namespace FRSApplication.Controllers
 
 
 
+        //[HttpPost]
+        //[Route("/BookFlight/GetCountriesName")]
+        //public JsonResult GetCitiesName()
+        //{
+        //    List<string> city = new List<string>();
+        //    city.Add("Karachi");
+        //    city.Add("Islamabad");
+        //    city.Add("Lahore");
+        //    return Json(city, JsonRequestBehavior.AllowGet);
+        //}
+
         [HttpPost]
-        [Route("/BookFlight/GetCountriesName")]
-        public JsonResult GetCitiesName()
+        public JsonResult GetCitiesByCountryCode()
         {
-            List<string> city = new List<string>();
-            city.Add("Karachi");
-            city.Add("Islamabad");
-            city.Add("Lahore");
-            return Json(city, JsonRequestBehavior.AllowGet);
+            string actionName = ".GetCitiesByCountryCode";
+            string source = ControllerName + actionName;
+            string jsonCities = string.Empty;
+
+            try
+            {
+                if(!string.IsNullOrEmpty(Models.ApplicationSettings.Countries))
+                {
+                    //Fetch countries from static list as saved at the time of application start
+                    jsonCities = Models.ApplicationSettings.Countries;
+
+                }
+                else
+                {
+                    //Fetch from DB
+                }
+
+                return Json(new
+                {
+                    isSuccess = true,
+                    response = jsonCities,
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    isSuccess = false,
+                    response = jsonCities,
+                });
+            }
         }
-
-
 
         [HttpPost]
         [Route("/BookFlight/GetAirLine")]
@@ -45,7 +80,7 @@ namespace FRSApplication.Controllers
 
             string countryCode = "PK";
 
-            TransactionResultDTO tempTranResDTO = new TransactionResultDTO();
+            //TransactionResultDTO tempTranResDTO = new TransactionResultDTO();
 
             string serializedTransaction = JsonConvert.SerializeObject(countryCode);
 
