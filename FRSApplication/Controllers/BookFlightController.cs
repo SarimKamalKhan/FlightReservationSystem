@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,20 +20,6 @@ namespace FRSApplication.Controllers
             return View();
         }
 
-
-
-
-        //[HttpPost]
-        //[Route("/BookFlight/GetCountriesName")]
-        //public JsonResult GetCitiesName()
-        //{
-        //    List<string> city = new List<string>();
-        //    city.Add("Karachi");
-        //    city.Add("Islamabad");
-        //    city.Add("Lahore");
-        //    return Json(city, JsonRequestBehavior.AllowGet);
-        //}
-
         [HttpPost]
         public JsonResult GetCitiesByCountryCode()
         {
@@ -50,7 +37,8 @@ namespace FRSApplication.Controllers
                 }
                 else
                 {
-                    //Fetch from DB
+                    //Fetch from DB and set on static list
+                    GetCities();
                 }
 
                 return Json(new
@@ -89,6 +77,16 @@ namespace FRSApplication.Controllers
             // tempTranResDTO = APIProxyController.GetCitiesByCountryCode(serializedTransaction);
 
             return Json(AirLine, JsonRequestBehavior.AllowGet);
+        }
+
+        private void GetCities()
+        {
+            string countryCode = ConfigurationManager.AppSettings["CountryCode"];
+            string jsonCountries = string.Empty;
+
+            bool isProcessed = APIFacadeProxy.GetCitiesByCountryCode(countryCode, out jsonCountries);
+
+            Models.ApplicationSettings.Countries = jsonCountries;
         }
     }
 }
