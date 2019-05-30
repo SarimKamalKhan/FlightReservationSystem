@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
+using static DataTransferObjects.TransactionResultsDTO;
 
 namespace FRSApplication.Controllers
 {
@@ -17,28 +19,6 @@ namespace FRSApplication.Controllers
         }
 
 
-        public JsonResult GetCities()
-        {
-            var Countries = new List<string>();
-            Countries.Add("Karachi");
-            Countries.Add("Islamabad");
-            Countries.Add("Lahore");
-            return Json(Countries, JsonRequestBehavior.AllowGet);
-        }
-
-
-        //[HttpPost]
-        //[Route("BookFlight/GetCountriesName")]
-
-        //public static List<string> GetCountriesName()
-        //{
-        //    List<string> lst = new List<string>();
-        //    lst.Add("Pakistan");
-        //    lst.Add("Norway");
-        //    lst.Add("America");
-        //    return lst;
-
-        //}
 
 
         [HttpPost]
@@ -50,6 +30,30 @@ namespace FRSApplication.Controllers
             city.Add("Islamabad");
             city.Add("Lahore");
             return Json(city, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        [HttpPost]
+        [Route("/BookFlight/GetAirLine")]
+        public JsonResult GetAirLine()
+        {
+            List<string> AirLine = new List<string>();
+            AirLine.Add("PIA");
+            AirLine.Add("Serene");
+            AirLine.Add("AirBlue");
+
+            string countryCode = "PK";
+
+            TransactionResultDTO tempTranResDTO = new TransactionResultDTO();
+
+            string serializedTransaction = JsonConvert.SerializeObject(countryCode);
+
+           
+            //having issue in it
+            // tempTranResDTO = APIProxyController.GetCitiesByCountryCode(serializedTransaction);
+
+            return Json(AirLine, JsonRequestBehavior.AllowGet);
         }
     }
 }

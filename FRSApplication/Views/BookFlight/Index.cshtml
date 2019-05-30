@@ -16,15 +16,11 @@
         success: function (GetCities) {
             console.log(GetCities);
             $('#GetCities').html('');
-            var appenddata1 = '<option value="0">Select City</option>';
+            var appenddata1 = '<option value="0">--Select City--</option>';
                         for (var x = 0; x < GetCities.length; x++) {
                             appenddata1 += (`
                                <option value="${GetCities[x]}">${GetCities[x]}</option>
                            `);
-
-                            //$('#GetCities').append(`
-                            //    <option value="${hallsList[x]}"></option>
-                            //`);
                            }
             $("#GetCities").append(appenddata1);
 
@@ -34,12 +30,31 @@
         }
     });
 
+     $.ajax({
+        type: "POST",
+        dataType: 'JSON',
+        url: "@Url.Action("GetAirLine", "BookFlight")",
+        success: function (GetAirLine) {
+            console.log(GetAirLine);
+            $('#GetAirLine').html('');
+            var appenddata1 = '<option value="0">--Select Airline--</option>';
+                        for (var x = 0; x < GetAirLine.length; x++) {
+                            appenddata1 += (`
+                               <option value="${GetAirLine[x]}">${GetAirLine[x]}</option>
+                           `);
+                           }
+            $("#GetAirLine").append(appenddata1);
 
+        },
+        error: function (xhr,status, exception) {
+            console.log("Error: " + exception + ", Status: " + status);
+        }
+    });
 </script>
 
 
 <div id="GetCitiesRow" style="margin-top:50px">
-    <label class="col-sm-2">Book Your Flight</label>
+    <label class="col-sm-1">City</label>
     <div class="col-sm-4" style="color:black">
         <select id="GetCities" name="GetCities" class="form-control">
             <option value="0">--Select City--</option>
@@ -49,9 +64,21 @@
 </div>
 
 
-<select id="ddlNationality"><option value="0">--Select Country--</option></select>
+
+<div id="GetAirLineRow" style="margin-top:50px">
+    <label class="col-sm-1">AirLine</label>
+    <div class="col-sm-4" style="color:black">
+        <select id="GetAirLine" name="GetAirLine" class="form-control">
+            <option value="0">--Select Airline--</option>
+        </select>
+
+    </div>
+</div>
+
+
 
 <br />
+<br /><br />
 <br />
 
 
