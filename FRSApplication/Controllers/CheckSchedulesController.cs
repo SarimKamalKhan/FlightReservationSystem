@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,77 +9,41 @@ namespace FRSApplication.Controllers
 {
     public class CheckSchedulesController : Controller
     {
+        private string ControllerName = "CheckSchedulesController";
         // GET: CheckSchedules
         public ActionResult Index()
         {
             return View();
         }
 
-        //public JsonResult CheckFlightSchedules()
-        //{
-        //    string actionName = ".CheckFlightSchedules";
-        //    string source = ControllerName + actionName;
-        //    string responseJSON = string.Empty;
+        public JsonResult GetFlightSchedules(GetFlightSchedulesRequest request)
+        {
+            string actionName = ".GetFlightSchedules";
+            string source = ControllerName + actionName;
+            string responseJSON = string.Empty;
 
-        //    try
-        //    {
-        //        if (string.IsNullOrEmpty(request.pp_SecureHash))
-        //        {
-        //            request.pp_SecureHash = "";
-        //        }
+            try
+            {
+                bool isProcessed = false;
+                isProcessed = APIFacadeProxy.GetFlightSchedules(request, out responseJSON);
 
-        //        TransactionResultDTO result = ServiceClient.APIProxy.Pay(request, out responseJSON);
+                return Json(new
+                {
+                    isSuccess = true,
+                    flightSchedule = responseJSON,
+                  
+                });
+            }
+            catch (Exception ex)
+            {
 
-        //        #region File Logging
+                return Json(new
+                {
+                    isSuccess = false,
+                    flightSchedule = responseJSON,
 
-        //        LogManager.GetSandboxLogger().Info(
-        //            new LogMessage().AddSource(source)
-        //            .AddUserIdentifier("Sandbox")
-        //            .AddText("PAY returned", result.ResponseCode)
-        //            );
-
-        //        #endregion File Logging
-
-        //        #region File Logging
-
-        //        LogManager.GetSandboxLogger().Info(
-        //            new LogMessage().AddSource(source)
-        //            .AddUserIdentifier("Sandbox")
-        //            .AddText("PAY response", !string.IsNullOrEmpty(responseJSON) ? responseJSON : string.Empty)
-        //            );
-
-        //        #endregion File Logging
-
-        //        return Json(new
-        //        {
-        //            loginStatus = true,
-        //            status = result.IsSuccessful,
-        //            message = result.ResponseDescription,
-        //            transaction = responseJSON,
-        //            httpStatus = result.StatusCode
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        #region File Logging
-
-        //        LogManager.GetSandboxLogger().Error(
-        //            new LogMessage().AddSource(source)
-        //            .AddText("Exception", ex.ToString())
-        //            .AddUserIdentifier("Sandbox")
-        //        );
-
-        //        #endregion File Logging
-
-        //        return Json(new
-        //        {
-        //            loginStatus = false,
-        //            status = false,
-        //            message = Messages.GenError,
-        //            transaction = "",
-        //            httpStatus = InternalServerError
-        //        });
-        //    }
-        //}
+                });
+            }
+        }
     }
 }
