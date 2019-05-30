@@ -55,7 +55,7 @@ namespace DataAccess.Repositories.City
                         cityDTO.Name = Validation.GetEmptyIfNull(dr["Name"]);
                         cityDTO.Id = Validation.GetZeroIfEmpty(dr["ID"]);
                         cityDTO.CountryCode = Validation.GetEmptyIfNull(dr["CountryCode"]);
-                        cityDTO.Status = Validation.GetEmptyIfNull(dr["Status"]);
+                 
 
                         cityList.Add(cityDTO);
                     }

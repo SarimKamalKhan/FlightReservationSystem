@@ -21,10 +21,10 @@ namespace DataAccess.DatabaseFacade
 
                 Params[0] = new GeneralParams("inCode", 100, GeneralParams.GeneralDBTypes.VarChar, countryCode, ParameterDirection.Input);
                 Params[1] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
-                Params[2] = new GeneralParams("outResponseCode", 2, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+                Params[2] = new GeneralParams("outResponseCode",3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
 
                 ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
-                spResponse = Params[3].OutputValue;
+                spResponse = Params[2].OutputValue;
             }
             catch (System.Exception ex)
             {
