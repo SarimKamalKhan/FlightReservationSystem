@@ -1,4 +1,5 @@
-﻿using Models.Responses;
+﻿using Models.Requests;
+using Models.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,11 @@ namespace FRSApplication.Controllers
                 return Json(getAirlineResponse, JsonRequestBehavior.AllowGet);
             }
         }
+
+        //public JsonResult ReserveFlight(FlightReservationRequest request)
+        //{
+
+        //}
 
         private void GetCities()
         {

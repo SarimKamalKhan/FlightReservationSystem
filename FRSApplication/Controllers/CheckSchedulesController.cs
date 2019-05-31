@@ -1,4 +1,6 @@
 ﻿using Models.Requests;
+using Models.Responses;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,27 +25,22 @@ namespace FRSApplication.Controllers
             string source = ControllerName + actionName;
             string responseJSON = string.Empty;
 
+            GetFlightSchedulesResponse getFlightSchedulesResponse = new GetFlightSchedulesResponse();
+
             try
             {
                 bool isProcessed = false;
                 isProcessed = APIFacadeProxy.GetFlightSchedules(request, out responseJSON);
 
-                return Json(new
-                {
-                    isSuccess = true,
-                    flightSchedule = responseJSON,
-                  
-                });
+                if (!string.IsNullOrEmpty(responseJSON))
+                    getFlightSchedulesResponse = JsonConvert.DeserializeObject<GetFlightSchedulesResponse>(responseJSON);
+
+                return Json(getFlightSchedulesResponse, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
 
-                return Json(new
-                {
-                    isSuccess = false,
-                    flightSchedule = responseJSON,
-
-                });
+                return Json(getFlightSchedulesResponse, JsonRequestBehavior.AllowGet);
             }
         }
     }
