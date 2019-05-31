@@ -49,6 +49,7 @@
     <Compile Include="Responses\GetFlightSchedulesResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\FlightReservationResponse.cs" />
+    <Compile Include="Responses\TravelCategoryResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">

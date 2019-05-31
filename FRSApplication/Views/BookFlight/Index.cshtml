@@ -95,7 +95,7 @@
             var appenddata1 = '<option value="0">--Select Category--</option>';
                         for (var x = 0; x < response.length; x++) {
                             appenddata1 += (`
-                               <option value="${response[x]}">${response[x]}</option>
+                               <option value="${response[x].Code}">${response[x].Name}</option>
                            `);
                            }
               $("#GetTravelCat").append(appenddata1);
@@ -131,7 +131,7 @@
 
 <br />
 <div id="GetAirLineRow" style="margin-top:70px">
-    <label class="col-sm-1 col-md-1">AirLine</label>
+    <label class="col-sm-1 col-md-1">Airline</label>
     <div class="col-sm-5 col-md-5" style="color:black">
         <select id="GetAirLine" name="GetAirLine" class="form-control">
             <option value="0">--Select Airline--</option>

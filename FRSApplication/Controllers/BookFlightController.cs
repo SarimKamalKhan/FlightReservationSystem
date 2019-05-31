@@ -117,11 +117,21 @@ namespace FRSApplication.Controllers
         [HttpPost]
         public JsonResult GetTravelCategory()
         {
-            List<string> TravelCategory = new List<string>();
-            TravelCategory.Add("FC");
-            TravelCategory.Add("B");
-            TravelCategory.Add("E");
-            return Json(TravelCategory, JsonRequestBehavior.AllowGet);
+            //List<string> TravelCategory = new List<string>();
+            //TravelCategory.Add("FC");
+            //TravelCategory.Add("B");
+            //TravelCategory.Add("E");
+            //return Json(TravelCategory, JsonRequestBehavior.AllowGet);
+
+            List<TravelCategoryResponse> travelCategoryResponse = new List<TravelCategoryResponse>();
+
+            travelCategoryResponse.Add(new TravelCategoryResponse { Code = "FC", Name = "First Class" });
+            travelCategoryResponse.Add(new TravelCategoryResponse { Code = "B", Name = "Business" });
+            travelCategoryResponse.Add(new TravelCategoryResponse { Code = "E", Name = "Economy" });
+
+
+            return Json(travelCategoryResponse, JsonRequestBehavior.AllowGet);
+
         }
     }
 }
