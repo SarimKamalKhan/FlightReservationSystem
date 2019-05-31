@@ -1,6 +1,6 @@
 ﻿namespace Models.Responses
 {
-    public class ReserveFlightResponse
+    public class FlightReservationResponse
     {
         public string ReservationNumber { get; set; }
         public int ReserverdSeats { get; set; }

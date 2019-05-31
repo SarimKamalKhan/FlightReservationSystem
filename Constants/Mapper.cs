@@ -1,4 +1,5 @@
 ﻿using Constants.Constants;
+using DataTransferObjects;
 using DataTransferObjects.TravelCategories;
 using Models.Requests;
 using Models.Responses;
@@ -29,6 +30,20 @@ namespace Constants
             allClassReservationtRequest.AirLineCode = request.AirLineCode;
 
             return allClassReservationtRequest;
+        }
+
+        public static FlightReservationRequestDTO GetReserveFlightRequestDTO(FlightReservationRequest request)
+        {
+            FlightReservationRequestDTO reservationRequestDTO = new FlightReservationRequestDTO();
+            reservationRequestDTO.ReservationCode = request.ReservationCode;
+            reservationRequestDTO.CNIC = request.CNIC;
+            reservationRequestDTO.MobileNumber = request.MobileNumber;
+            reservationRequestDTO.ReservedSeats = request.ReservedSeats;
+            reservationRequestDTO.TotalAmount = request.TotalAmount;
+            reservationRequestDTO.UpdatedAvailableSeatsForReservation = request.UpdatedAvailableSeatsForReservation;
+
+            return reservationRequestDTO;
+
         }
 
     }

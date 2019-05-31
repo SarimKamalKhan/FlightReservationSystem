@@ -2,6 +2,7 @@
 using Constants;
 using Constants.Constants;
 using DataAccess.Repositories.TravelCategory;
+using DataTransferObjects;
 using DataTransferObjects.TravelCategories;
 using Models.Requests;
 using Models.Responses;
@@ -37,19 +38,26 @@ namespace BusinessAPI.Controllers
 
         [HttpPost]
         [Route("ReserveFlight")]
-        public HttpResponseMessage ReserveFlight(ReserveFlightRequest request)
+        public HttpResponseMessage ReserveFlight(FlightReservationRequest request)
         {
             string methodName = "ReserveFlight";
-            ReserveFlightResponse reserveFlightResponse = new ReserveFlightResponse();
+            FlightReservationResponse reserveFlightResponse = new FlightReservationResponse();
 
             try
             {
-                return this.Request.CreateResponse<ReserveFlightResponse>(HttpStatusCode.OK, reserveFlightResponse);
+                //1. Generate Reservation Number
+                string reservationNumber = request.ReservationCode + DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                //2.map request into FlightReservationRequestDTO 
+
+                FlightReservationRequestDTO flightReservationRequestDTO = Mapper.GetReserveFlightRequestDTO(request);
+
+                return this.Request.CreateResponse<FlightReservationResponse>(HttpStatusCode.OK, reserveFlightResponse);
 
             }
             catch (Exception ex)
             {
-                return this.Request.CreateResponse<ReserveFlightResponse>(HttpStatusCode.InternalServerError, reserveFlightResponse);
+                return this.Request.CreateResponse<FlightReservationResponse>(HttpStatusCode.InternalServerError, reserveFlightResponse);
             }
         }
 
