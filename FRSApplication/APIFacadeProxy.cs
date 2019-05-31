@@ -168,6 +168,44 @@ namespace FRSApplication
             return isProcessed;
         }
 
+        public static bool ReserveFlight(FlightReservationRequest request, out string responseJSON)
+        {
+            string actionName = ".ReserveFlight";
+            string source = ClassName + actionName;
+            responseJSON = string.Empty;
+            bool isProcessed = false;
+
+            string url = "FlightManagement/ReserveFlight";
+            string httpMethod = "POST";
+
+            try
+            {
+                string requestJSON = JsonConvert.SerializeObject(request, Formatting.Indented);
+
+                var apiResponse = APIConsumer(url, httpMethod, null, null, requestJSON);
+
+                responseJSON = apiResponse.Content.ReadAsStringAsync().Result;
+
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    isProcessed = true;
+                }
+
+                else
+                {
+                    isProcessed = false;
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                isProcessed = false;
+            }
+
+            return isProcessed;
+        }
 
         public static bool GetAirLinesByCountryCode(string countryCode, out string responseJSON)
         {

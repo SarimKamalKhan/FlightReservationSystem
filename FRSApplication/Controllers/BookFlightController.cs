@@ -88,10 +88,30 @@ namespace FRSApplication.Controllers
             }
         }
 
-        //public JsonResult ReserveFlight(FlightReservationRequest request)
-        //{
+        public JsonResult ReserveFlight(FlightReservationRequest request)
+        {
+            string actionName = ".ReserveFlight";
+            string source = ControllerName + actionName;
+            string responseJSON = string.Empty;
 
-        //}
+            FlightReservationResponse flightReservationResponse = new FlightReservationResponse();
+
+            try
+            {
+                bool isProcessed = false;
+                isProcessed = APIFacadeProxy.ReserveFlight(request, out responseJSON);
+
+                if (!string.IsNullOrEmpty(responseJSON))
+                    flightReservationResponse = JsonConvert.DeserializeObject<FlightReservationResponse>(responseJSON);
+
+                return Json(flightReservationResponse, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+
+                return Json(flightReservationResponse, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         private void GetCities()
         {
