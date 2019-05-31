@@ -48,6 +48,7 @@
     <Compile Include="AirlineDTO.cs" />
     <Compile Include="CityDTO.cs" />
     <Compile Include="FlightReservationRequestDTO.cs" />
+    <Compile Include="FlightReservationResponseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionResultDTO.cs" />
     <Compile Include="TravelCategories\AllClassReservationDTO.cs" />

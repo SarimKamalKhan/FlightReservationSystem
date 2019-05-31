@@ -1,6 +1,7 @@
 ﻿using CommonHelper.Constants;
 using Constants;
 using Constants.Constants;
+using DataAccess.Repositories.FlightReservation;
 using DataAccess.Repositories.TravelCategory;
 using DataTransferObjects;
 using DataTransferObjects.TravelCategories;
@@ -42,6 +43,7 @@ namespace BusinessAPI.Controllers
         {
             string methodName = "ReserveFlight";
             FlightReservationResponse reserveFlightResponse = new FlightReservationResponse();
+            string response = string.Empty;
 
             try
             {
@@ -51,8 +53,25 @@ namespace BusinessAPI.Controllers
                 //2.map request into FlightReservationRequestDTO 
 
                 FlightReservationRequestDTO flightReservationRequestDTO = Mapper.GetReserveFlightRequestDTO(request);
+                flightReservationRequestDTO.ReservationNumber = reservationNumber;
 
-                return this.Request.CreateResponse<FlightReservationResponse>(HttpStatusCode.OK, reserveFlightResponse);
+                //3.Invoke ReserveFlightRepository via FlightReservationRequestDTO
+                ReserveFlightRepository repository = new ReserveFlightRepository();
+
+                FlightReservationResponseDTO reservationResponseDTO = repository.ReserveFlight(flightReservationRequestDTO,out response);
+
+                if (response == ResponseCodes.Success)
+                {
+                    //4.map FlightReservationResponseDTO into FlightReservationResponse
+
+                    reserveFlightResponse = Mapper.GetFlightReservationResponse(reservationResponseDTO);
+
+                    return this.Request.CreateResponse<FlightReservationResponse>(HttpStatusCode.OK, reserveFlightResponse);
+                }
+                else
+                    return this.Request.CreateResponse<FlightReservationResponse>(HttpStatusCode.BadRequest, reserveFlightResponse);
+
+
 
             }
             catch (Exception ex)

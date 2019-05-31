@@ -1,6 +1,6 @@
-﻿namespace Models.Responses
+﻿namespace DataTransferObjects
 {
-    public class FlightReservationResponse
+    public class FlightReservationResponseDTO
     {
         public string ReservationNumber { get; set; }
         public int ReserverdSeats { get; set; }

@@ -55,6 +55,8 @@
     <Compile Include="Repositories\AirLine\IAirlineRepository.cs" />
     <Compile Include="Repositories\City\CityRepository.cs" />
     <Compile Include="Repositories\City\ICityRepository.cs" />
+    <Compile Include="Repositories\FlightReservation\IReserveFlightRepository.cs" />
+    <Compile Include="Repositories\FlightReservation\ReserveFlightRepository.cs" />
     <Compile Include="Repositories\TravelCategory\BusinessClassRepository.cs" />
     <Compile Include="Repositories\TravelCategory\EconomyClassRepository.cs" />
     <Compile Include="Repositories\TravelCategory\AllClassRepository.cs" />
@@ -74,8 +76,6 @@
       <Name>DataTransferObjects</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\FlightReservation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

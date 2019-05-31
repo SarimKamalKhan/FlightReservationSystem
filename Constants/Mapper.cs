@@ -46,5 +46,13 @@ namespace Constants
 
         }
 
+        public static FlightReservationResponse GetFlightReservationResponse(FlightReservationResponseDTO reservationResponseDTO)
+        {
+            FlightReservationResponse flightReservationResponse = new FlightReservationResponse();
+            flightReservationResponse.TotalAmount = reservationResponseDTO.TotalAmount;
+            flightReservationResponse.ReserverdSeats = reservationResponseDTO.ReserverdSeats;
+            flightReservationResponse.ReservationNumber = reservationResponseDTO.ReservationNumber;
+            return flightReservationResponse;
+        }
     }
 }
