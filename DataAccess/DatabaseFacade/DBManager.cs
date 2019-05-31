@@ -112,7 +112,7 @@ namespace DataAccess.DatabaseFacade
 
                 string SPName = "PKG_FLIGHT_RESERVATION.GetAllClassDetails";
 
-                GeneralParams[] Params = new GeneralParams[8];
+                GeneralParams[] Params = new GeneralParams[7];
 
                 Params[0] = new GeneralParams("inAirLineCode", 100, GeneralParams.GeneralDBTypes.VarChar, allClassReservation.AirLineCode, ParameterDirection.Input);
 
@@ -128,7 +128,7 @@ namespace DataAccess.DatabaseFacade
                 Params[6] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
 
                 ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
-                spResponse = Params[7].OutputValue;
+                spResponse = Params[6].OutputValue;
             }
             catch (System.Exception ex)
             {
