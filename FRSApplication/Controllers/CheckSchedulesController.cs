@@ -16,6 +16,7 @@ namespace FRSApplication.Controllers
             return View();
         }
 
+        [HttpPost]
         public JsonResult GetFlightSchedules(GetFlightSchedulesRequest request)
         {
             string actionName = ".GetFlightSchedules";

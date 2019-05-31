@@ -75,7 +75,7 @@ namespace DataAccess.DatabaseFacade
 
                 string SPName = "PKG_FLIGHT_RESERVATION.GetFirstClassDetails";
 
-                GeneralParams[] Params = new GeneralParams[8];
+                GeneralParams[] Params = new GeneralParams[7];
 
                 Params[0] = new GeneralParams("inAirLineCode", 100, GeneralParams.GeneralDBTypes.VarChar, firstClassReservation.AirLineCode, ParameterDirection.Input);
 
@@ -87,11 +87,11 @@ namespace DataAccess.DatabaseFacade
 
                 Params[4] = new GeneralParams("inReservationDate", 100, GeneralParams.GeneralDBTypes.DateTime, firstClassReservation.ReservationDate, ParameterDirection.Input);
 
-                Params[6] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
-                Params[7] = new GeneralParams("outResponseCode",3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+                Params[5] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[6] = new GeneralParams("outResponseCode",3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
 
                 ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
-                spResponse = Params[7].OutputValue;
+                spResponse = Params[6].OutputValue;
             }
             catch (System.Exception ex)
             {
@@ -124,8 +124,8 @@ namespace DataAccess.DatabaseFacade
 
                 Params[4] = new GeneralParams("inReservationDate", 100, GeneralParams.GeneralDBTypes.DateTime, allClassReservation.ReservationDate, ParameterDirection.Input);
 
-                Params[6] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
-                Params[7] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+                Params[5] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[6] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
 
                 ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
                 spResponse = Params[7].OutputValue;

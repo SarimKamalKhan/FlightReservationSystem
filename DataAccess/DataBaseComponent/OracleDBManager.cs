@@ -22,6 +22,7 @@ namespace DataAccess.DataBaseComponent
 
         private OracleConnection OpenConnection()
         {
+            
             string sFunctionName = ".OpenConnection()";
             try
             {

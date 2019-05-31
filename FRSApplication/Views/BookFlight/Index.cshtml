@@ -1,4 +1,5 @@
-﻿
+﻿@model Models.Requests.GetFlightSchedulesRequest
+
 @{
     ViewBag.Title = "Index";
 }
@@ -106,6 +107,8 @@
 </script>
 
 
+
+
 <div id="GetCitiesRow" style="margin-top:50px">
     <label class="col-sm-1 col-md-1">To City</label>
     <div class="col-sm-5 col-md-5" style="color:black">
@@ -164,23 +167,12 @@
         </div>
     </div>
 
-    <div class="col-sm-6 col-md-6" ">
-        <label class="col-sm-1 col-md-1">From Date</label>
-        <div class="col-sm-5 col-md-5">
-            <input id="From_date" type="text">
-
-            <script>
-                var datepicker = new ej.calendars.DatePicker({ width: "255px" });
-                datepicker.appendTo('#From_date');
-            </script>
-        </div>
-    </div>
 </div>
 
 <br />
 <div style="margin-top:100px">
     <div class="col-sm-6 col-md-6 col-lg-6">
-        <a href="#" class="btn btn-success btn-lg">Find Flight &raquo;</a>
+        <a href="#" class="btn btn-success btn-lg" id="Find">Find Flight &raquo;</a>
     </div>
 
     <div class="col-sm-6 col-md-6 col-lg-6">
@@ -191,6 +183,55 @@
 <br />
 
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+<script type="text/javascript">
 
+    $(function () {
+    $("#Find").click(function () {
 
+        //var GetFlightSchedulesRequest;
+        //GetFlightSchedulesRequest = { AirLineCode: $("#GetAirLine").val, TravelCategoryCode: 'FC', FromCity: $("#from_cities"), ToCity: $("#to_cities"), ReservationDate: $("#From_date") };
 
+        var flightSchedule = {};
+        flightSchedule.AirLineCode = $("#GetAirLine").val();
+        flightSchedule.TravelCategoryCode = $("#GetTravelCat").val();
+        flightSchedule.FromCity = $("#from_cities").val();
+        flightSchedule.ToCity = $("#to_cities").val();
+         flightSchedule.ReservationDate = $("#To_date").val();
+
+        $.ajax({
+            url: "@Url.Action("GetFlightSchedules", "CheckSchedules")",
+            type: "POST",
+            data: {
+                request: flightSchedule,
+            },
+            success: function (result) {
+
+                if (result.loginStatus == true) {
+                    console.log(result);
+                    var status = "Status Code :";
+                    if (result.httpStatus == "200 OK") {
+                        $("#StatusCode").css("color", "green");
+                    }
+                    $("#StatusCode").html(" [" + status + result.httpStatus + "] ");
+                    $('.ResponseHolderPreloaderWrapper').hide();
+                    $('.ResponseHolder').css('opacity', '1');
+                    $('.ResponseHolder').val(result.transaction);
+                    APIResponseFormatter();
+
+                }
+
+                else {
+                    logout();
+                }
+
+            },
+            error: function () {
+                logout();
+            }
+        });
+    });
+});
+
+</script>

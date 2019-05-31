@@ -112,9 +112,9 @@ namespace FRSApplication.Controllers
         public JsonResult GetTravelCategory()
         {
             List<string> TravelCategory = new List<string>();
-            TravelCategory.Add("First");
-            TravelCategory.Add("Business");
-            TravelCategory.Add("Economy");
+            TravelCategory.Add("FC");
+            TravelCategory.Add("B");
+            TravelCategory.Add("E");
             return Json(TravelCategory, JsonRequestBehavior.AllowGet);
         }
     }

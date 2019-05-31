@@ -14,9 +14,11 @@ using System.Web.Http;
 
 namespace BusinessAPI.Controllers
 {
+    [RoutePrefix("api/FlightManagement")]
     public class FlightManagementController : ApiController
     {
         [HttpPost]
+        [Route("GetFlightSchedules")]
         public HttpResponseMessage GetFlightSchedules(GetFlightSchedulesRequest request)
         {
             string methodName = "GetFlighSchedules";
