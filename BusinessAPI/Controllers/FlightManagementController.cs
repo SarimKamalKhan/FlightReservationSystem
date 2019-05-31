@@ -35,6 +35,24 @@ namespace BusinessAPI.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("ReserveFlight")]
+        public HttpResponseMessage ReserveFlight(ReserveFlightRequest request)
+        {
+            string methodName = "ReserveFlight";
+            ReserveFlightResponse reserveFlightResponse = new ReserveFlightResponse();
+
+            try
+            {
+                return this.Request.CreateResponse<ReserveFlightResponse>(HttpStatusCode.OK, reserveFlightResponse);
+
+            }
+            catch (Exception ex)
+            {
+                return this.Request.CreateResponse<ReserveFlightResponse>(HttpStatusCode.InternalServerError, reserveFlightResponse);
+            }
+        }
+
         private HttpResponseMessage GetFlightSchedulesViaCategory(GetFlightSchedulesRequest request)
         {
             GetFlightSchedulesResponse getFlightReservationResponse = new GetFlightSchedulesResponse();

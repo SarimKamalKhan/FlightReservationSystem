@@ -47,6 +47,8 @@ namespace DataAccess.Repositories.TravelCategory
 
                         flightReservationDetails.DepartureTime = Validation.GetMinDateIfNull(dr["DepartureTime"]);
 
+                        flightReservationDetails.PricePerSeat = Validation.GetZeroIfEmpty(dr["PerPerSeat"]);
+
                         flightReservationDetailsDTOs.Add(flightReservationDetails);
                     }
                 }

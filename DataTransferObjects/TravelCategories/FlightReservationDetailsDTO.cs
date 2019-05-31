@@ -12,6 +12,7 @@ namespace DataTransferObjects.TravelCategories
         public DateTime DepartureTime { get; set; }
         public int AvailableSeats { get; set; }
         public string ReservationCode { get; set; }
+        public double PricePerSeat { get; set; }
         public string UIArrivalTime
         {
             get

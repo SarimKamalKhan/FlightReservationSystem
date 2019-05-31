@@ -43,10 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Requests\GetFlightSchedulesRequest.cs" />
+    <Compile Include="Requests\ReserveFlightRequest.cs" />
     <Compile Include="Responses\GetAirlinesResponse.cs" />
     <Compile Include="Responses\GetCitiesResponse.cs" />
     <Compile Include="Responses\GetFlightSchedulesResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\ReserveFlightResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
