@@ -214,42 +214,20 @@
                 console.log(result);
                 text.style.display = "block";
 
-                var tr;
-        //Append each row to html table
-        for (var i = 0; i < result.length; i++) {
-                tr = $('<tr/>');
-                tr.append("<td>" + result.FlightReservationDetails[i].AirLine + "</td>");
-                tr.append("<td>" + result.FlightReservationDetails[i].AvailableSeats + "</td>");
-                tr.append("<td>" + result.FlightReservationDetails[i].FromCity + "</td>");
-                tr.append("<td>" + result.FlightReservationDetails[i].ToCity + "</td>");
-                $('tbody').append(tr);
-            }
+                var flightScheduledData = result;
 
-            //     var row = "";
-            //$.each(result, function(index, item){
-            //    row += "<tr>"  +  "<td>"+result.AirLine+"</td >"
-            //    "<td>" + item.AvailableSeats + "</td>" 
-            //    " <td>" + item.FromCity + "</td>" + 
-            //    "</tr > ";
-            //});
-            //    //$("#text").html(row); 
-            //    $("#text tr:last").append(row);
+                if (flightScheduledData.FlightReservationDetails.length == 0) {
+                    $('.flightScheduleDetailsWrapperEmpty').fadeIn();
+                } else {
+                    $('.flightScheduleDetailsWrapperEmpty').hide();
+                }
+                $('#flightScheduleWrapperData').html('');
 
-                 @*$('#text').html('');
-            var appenddata1 = '';
-                        for (var x = 0; x < result.length; x++) {
-                            appenddata1 += (`
-                             
-                            <td>@{"AirLine"}</td>
-                            <td>@row["AvailableSeats"]</td>
-                            <td>@row["FromCity"]</td>
-                            <td>@row["ToCity"]</td>
-                            <td>@row["TravelCategory"]</td>
-                            <td>@row["UIArrivalTime"]</td>
-                            <td>@row["UIDepartureTime"]</td>
-                           `);
-                           }
-              $("#text").append(appenddata1);*@
+                for (i = 0; i < flightScheduledData.FlightReservationDetails.length; i++) {
+
+                    //$('#flightScheduleWrapperData').append('<tr id=' + i + '><td>' + i + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" />');
+                    $('#flightScheduleWrapperData').append('<tr id=' + i + '><td>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AvailableSeats+ '</td><td>' + flightScheduledData.FlightReservationDetails[i].PricePerSeat + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" />');
+                }
 
             },
             error: function () {
@@ -264,29 +242,20 @@
 
 @*<p id="text" style="display:none">Checkbox is CHECKED!</p>*@
 <br />
+@*<table  class="bordered striped highlight responsive-table" style="width: 100%;">*@
 <table id="text" style="display:none;margin-top:50px">
-    <thead>
-        <tr>
-            <th>AirLine</th>
-            <th>AvailableSeats</th>
-            <th>FromCity</th>
-            <th>ToCity</th>
-            <th>TravelCategory</th>
-            <th>ArrivalTime</th>
-            <th>ACCOUNT</th>
-        </tr>
-    </thead>
-    <tbody ></tbody>
-    @*@foreach (DataRow row in result.Rows)
-            {
-        <tr>
-            <td>@row["AirLine"]result.Cities[i].CityCode</td>
-                <td>@row["AvailableSeats"]</td>
-                <td>@row["FromCity"]</td>
-                <td>@row["ToCity"]</td>
-                <td>@row["TravelCategory"]</td>
-                <td>@row["UIArrivalTime"]</td>
-                <td>@row["UIDepartureTime"]</td>
-        </tr>
-         }*@
+<thead>
+    <tr>
+        <th>Airline</th>
+        <th>From City</th>
+        <th>To City</th>
+        <th>Travel Category</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Available Seats</th>
+        <th>Price Per Seat</th>
+    </tr>
+</thead>
+<tbody id="flightScheduleWrapperData" style="font-size: 13px;"></tbody>
+<div class="flightScheduleDetailsWrapperEmpty">No Data Found</div>
 </table>
