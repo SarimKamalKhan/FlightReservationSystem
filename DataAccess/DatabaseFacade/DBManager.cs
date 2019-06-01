@@ -8,6 +8,8 @@ namespace DataAccess.DatabaseFacade
     public class DBManager
     {
         private string ClassName = "DBManager";
+        private System.Byte MaxPrecision = 38;
+        private System.Byte CommonDecimal = 2;
         public DataSet GetCitiesByCountryCode(string countryCode,out string spResponse)
         {
             string functionName = ".GetCitiesByCode";
@@ -35,7 +37,6 @@ namespace DataAccess.DatabaseFacade
 
             return ds_Responses;
         }
-
 
         public DataSet GetAirlinesByCountryCode(string countryCode, out string spResponse)
         {
@@ -139,7 +140,6 @@ namespace DataAccess.DatabaseFacade
             return ds_Responses;
         }
 
-
         public DataSet GetBusinessClassReservationDetails(BusinessClassReservationDTO businessClassReservation, out string spResponse)
         {
             string functionName = ".GetFlightReservationDetails";
@@ -241,11 +241,12 @@ namespace DataAccess.DatabaseFacade
 
                 Params[3] = new GeneralParams("inMobileNumber", 100, GeneralParams.GeneralDBTypes.VarChar,flightReservationRequestDTO.MobileNumber, ParameterDirection.Input);
 
-                Params[4] = new GeneralParams("inReservedSeats", 100, GeneralParams.GeneralDBTypes.Int, flightReservationRequestDTO.ReservedSeats, ParameterDirection.Input);
+                Params[4] = new GeneralParams("inReservedSeats", 0, GeneralParams.GeneralDBTypes.Int, flightReservationRequestDTO.ReservedSeats, ParameterDirection.Input);
 
-                Params[5] = new GeneralParams("inTotalAmount", 100, GeneralParams.GeneralDBTypes.Decimal, flightReservationRequestDTO.ReservedSeats, ParameterDirection.Input);
+                Params[5] = new GeneralParams("inTotalAmount", 0, GeneralParams.GeneralDBTypes.Decimal, flightReservationRequestDTO.TotalAmount, ParameterDirection.Input, MaxPrecision, CommonDecimal);
 
-                Params[6] = new GeneralParams("inUpdatedAvailableSeatsForReservation", 100, GeneralParams.GeneralDBTypes.Int, flightReservationRequestDTO.ReservedSeats, ParameterDirection.Input);
+
+                Params[6] = new GeneralParams("inUpdatedAvailableSeatsForReservation", 100, GeneralParams.GeneralDBTypes.Int, flightReservationRequestDTO.UpdatedAvailableSeatsForReservation, ParameterDirection.Input);
 
                 
                 Params[7] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
