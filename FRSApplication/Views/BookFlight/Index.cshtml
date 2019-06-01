@@ -239,7 +239,7 @@
                 for (i = 0; i < flightScheduledData.FlightReservationDetails.length; i++) {
                     var onclick = 'onclick="document.getElementById(\'id01\').style.display=\'block\'"';
                     //$('#flightScheduleWrapperData').append('<tr id=' + i + '><td>' + i + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" />');
-                    $('#flightScheduleWrapperData').append('<tr id=' + i + '> <td><button onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn btn-primary">Book Now</button>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AvailableSeats+ '</td><td>' + flightScheduledData.FlightReservationDetails[i].PricePerSeat + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" /></td></tr>');
+                    $('#flightScheduleWrapperData').append('<tr id=' + i + '> <td>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AvailableSeats + '</td><td>' + flightScheduledData.FlightReservationDetails[i].PricePerSeat +'<td><button onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn btn-primary">Book Now</button></td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" /></td></tr>');
                 }
 
             },
@@ -259,6 +259,7 @@
 <table id="text" class="tablef" style="display:none;margin-top:70px">
     <thead>
         <tr>
+
             <th>Airline</th>
             <th>From City</th>
             <th>To City</th>
@@ -267,6 +268,7 @@
             <th>Arrival Time</th>
             <th>Available Seats</th>
             <th>Price Per Seat</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody id="flightScheduleWrapperData" style="font-size: 13px;"></tbody>
