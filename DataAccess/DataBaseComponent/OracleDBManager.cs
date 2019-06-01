@@ -29,6 +29,7 @@ namespace DataAccess.DataBaseComponent
                 if (Connection == null)
                 {
                     Connection = new OracleConnection(ConnectionString);
+                    Connection.Open();
                 }
               
                 return Connection;
