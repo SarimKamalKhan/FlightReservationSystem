@@ -18,7 +18,7 @@ namespace DataAccess.DataBaseComponent
         }
 
         //Singletone
-        public static OracleConnection Connection;
+        public static OracleConnection DbConnection;
 
         private OracleConnection OpenConnection()
         {
@@ -26,17 +26,13 @@ namespace DataAccess.DataBaseComponent
             string sFunctionName = ".OpenConnection()";
             try
             {
-                if (Connection == null)
+                if (DbConnection == null)
                 {
-                    Connection = new OracleConnection(ConnectionString);
-                    Connection.Open();
+                    DbConnection = new OracleConnection(ConnectionString);
+                    DbConnection.Open();
                 }
-                else if(Connection != null && ( Connection.State == ConnectionState.Closed))
-                {
-                    Connection.Open();
-                }
-               
-                return Connection;
+              
+                return DbConnection;
             }
             catch (Exception ex)
             {
@@ -49,25 +45,25 @@ namespace DataAccess.DataBaseComponent
          
             try
             {
-                Connection = OpenConnection();
-                OracleCommand Command = CreateCommand(Connection, Query, Params, CommandType.Text);
+                DbConnection = OpenConnection();
+                OracleCommand Command = CreateCommand(DbConnection, Query, Params, CommandType.Text);
 
                 OracleDataAdapter Adapter = new OracleDataAdapter(Command);
                 DataSet ds = new DataSet();
 
                 Adapter.Fill(ds);
                 SetParameters(ref Params, Command);
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
                 return ds;
             }
             catch (Exception ex)
             {
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
                 throw ex;
             }
             finally
             {
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
             }
         }
 
@@ -85,27 +81,27 @@ namespace DataAccess.DataBaseComponent
        
             try
             {
-                Connection = new OracleConnection(ConnectionString);
-                Connection.Open();
+                DbConnection = new OracleConnection(ConnectionString);
+                DbConnection.Open();
 
-                OracleCommand Command = CreateCommand(Connection, SPName, Params, CommandType.StoredProcedure);
+                OracleCommand Command = CreateCommand(DbConnection, SPName, Params, CommandType.StoredProcedure);
 
          
                 int Rows_Affected = Command.ExecuteNonQuery();
                 SetParameters(ref Params, Command);
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
           
                 return Rows_Affected;
             }
             catch (Exception ex)
             {
                
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
                 throw ex;
             }
             finally
             {
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
             }
         }
 
@@ -145,8 +141,8 @@ namespace DataAccess.DataBaseComponent
 
             try
             {
-                Connection = OpenConnection();
-                OracleCommand Command = new OracleCommand(SpName, Connection);
+                DbConnection = OpenConnection();
+                OracleCommand Command = new OracleCommand(SpName, DbConnection);
                 Command.CommandType = CommandType.StoredProcedure;
            
                 OracleCommandBuilder.DeriveParameters(Command);
@@ -158,12 +154,12 @@ namespace DataAccess.DataBaseComponent
             }
             catch (Exception ex)
             {
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
                 throw ex;
             }
             finally
             {
-                CloseConnection(Connection);
+                CloseConnection(DbConnection);
             }
         }
 
@@ -172,10 +168,10 @@ namespace DataAccess.DataBaseComponent
             string sFunctionName = ".CloseConnection()";
             try
             {
-                if ((Connection != null) && (Connection.State != ConnectionState.Closed))
+                if ((DbConnection != null) && (DbConnection.State != ConnectionState.Closed))
                 {
-                    Connection.Close();
-                    Connection.Dispose();
+                    DbConnection.Close();
+                    DbConnection.Dispose();
                 }
             }
             catch (Exception ex)
