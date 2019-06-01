@@ -29,7 +29,6 @@ namespace DataAccess.DataBaseComponent
                 if (DbConnection == null)
                 {
                     DbConnection = new OracleConnection(ConnectionString);
-                    DbConnection.Open();
                 }
               
                 return DbConnection;
@@ -77,31 +76,36 @@ namespace DataAccess.DataBaseComponent
         override public int ExecuteNonQuery(string SPName, GeneralParams[] Params)
         {
             string sFunctionName = "ExecuteNonQuery";
+            OracleConnection oracleConnection = new OracleConnection(ConnectionString);
 
-       
             try
             {
-                DbConnection = new OracleConnection(ConnectionString);
-                DbConnection.Open();
+                
+                oracleConnection.Open();
 
-                OracleCommand Command = CreateCommand(DbConnection, SPName, Params, CommandType.StoredProcedure);
+                OracleCommand Command = CreateCommand(oracleConnection, SPName, Params, CommandType.StoredProcedure);
 
          
                 int Rows_Affected = Command.ExecuteNonQuery();
                 SetParameters(ref Params, Command);
-                CloseConnection(DbConnection);
-          
+
+                oracleConnection.Close();
+                oracleConnection.Dispose();
+
                 return Rows_Affected;
             }
             catch (Exception ex)
             {
-               
-                CloseConnection(DbConnection);
+
+                oracleConnection.Close();
+                oracleConnection.Dispose();
+
                 throw ex;
             }
             finally
             {
-                CloseConnection(DbConnection);
+                oracleConnection.Close();
+                oracleConnection.Dispose();
             }
         }
 
