@@ -35,12 +35,7 @@ namespace DataAccess.DataBaseComponent
                 {
                     Connection.Open();
                 }
-                else
-                {
-                    Connection = new OracleConnection(ConnectionString);
-                    Connection.Open();
-                }
-              
+               
                 return Connection;
             }
             catch (Exception ex)
@@ -90,7 +85,9 @@ namespace DataAccess.DataBaseComponent
        
             try
             {
-                Connection = OpenConnection();
+                Connection = new OracleConnection(ConnectionString);
+                Connection.Open();
+
                 OracleCommand Command = CreateCommand(Connection, SPName, Params, CommandType.StoredProcedure);
 
          
