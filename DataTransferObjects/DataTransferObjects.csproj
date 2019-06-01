@@ -52,6 +52,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionResultDTO.cs" />
     <Compile Include="TravelCategories\AllClassReservationDTO.cs" />
+    <Compile Include="TravelCategories\BusinessClassReservationDTO.cs" />
+    <Compile Include="TravelCategories\EconomyClassReservationDTO.cs" />
     <Compile Include="TravelCategories\FirstClassReservationDTO.cs" />
     <Compile Include="TravelCategories\FlightReservationDetailsDTO.cs" />
     <Compile Include="TravelCategories\FlightReservationDTO.cs" />

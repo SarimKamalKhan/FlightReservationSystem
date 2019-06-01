@@ -4,7 +4,16 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    .tablef {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
 
+    th, td {
+        padding: 20px;
+    }
+</style>
 
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
@@ -158,8 +167,12 @@
 
 
 <div style="margin-top:50px">
-    <div class="col-sm-6 col-md-6" ">
-        <label class="col-sm-1 col-md-1">Reservation Date</label>
+    <div class="col-sm-8 col-md-8" ">
+        <div class="col-sm-2 col-md-2">
+            <label>Reservation Date</label>
+
+        </div>
+
 
         <div class="col-sm-5 col-md-5">
             <input id="To_date" type="text">
@@ -224,9 +237,9 @@
                 $('#flightScheduleWrapperData').html('');
 
                 for (i = 0; i < flightScheduledData.FlightReservationDetails.length; i++) {
-
+                    var onclick = 'onclick="document.getElementById(\'id01\').style.display=\'block\'"';
                     //$('#flightScheduleWrapperData').append('<tr id=' + i + '><td>' + i + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" />');
-                    $('#flightScheduleWrapperData').append('<tr id=' + i + '><td>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AvailableSeats+ '</td><td>' + flightScheduledData.FlightReservationDetails[i].PricePerSeat + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" />');
+                    $('#flightScheduleWrapperData').append('<tr id=' + i + '> <td><button onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn btn-primary">Book Now</button>' + flightScheduledData.FlightReservationDetails[i].AirLine + '</td><td>' + flightScheduledData.FlightReservationDetails[i].FromCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].ToCity + '</td><td>' + flightScheduledData.FlightReservationDetails[i].TravelCategory + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIDepartureTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].UIArrivalTime + '</td><td>' + flightScheduledData.FlightReservationDetails[i].AvailableSeats+ '</td><td>' + flightScheduledData.FlightReservationDetails[i].PricePerSeat + '</td><td><input type="hidden" value="' + flightScheduledData.FlightReservationDetails[i].ReservationCode + '" /></td></tr>');
                 }
 
             },
@@ -243,19 +256,61 @@
 @*<p id="text" style="display:none">Checkbox is CHECKED!</p>*@
 <br />
 @*<table  class="bordered striped highlight responsive-table" style="width: 100%;">*@
-<table id="text" style="display:none;margin-top:50px">
-<thead>
-    <tr>
-        <th>Airline</th>
-        <th>From City</th>
-        <th>To City</th>
-        <th>Travel Category</th>
-        <th>Departure Time</th>
-        <th>Arrival Time</th>
-        <th>Available Seats</th>
-        <th>Price Per Seat</th>
-    </tr>
-</thead>
-<tbody id="flightScheduleWrapperData" style="font-size: 13px;"></tbody>
-<div class="flightScheduleDetailsWrapperEmpty">No Data Found</div>
+<table id="text" class="tablef" style="display:none;margin-top:70px">
+    <thead>
+        <tr>
+            <th>Airline</th>
+            <th>From City</th>
+            <th>To City</th>
+            <th>Travel Category</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Available Seats</th>
+            <th>Price Per Seat</th>
+        </tr>
+    </thead>
+    <tbody id="flightScheduleWrapperData" style="font-size: 13px;"></tbody>
+    <div class="flightScheduleDetailsWrapperEmpty" style="margin-top:70px">No Data Found</div>
 </table>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container w3-sand">
+            <span onclick="document.getElementById('id01').style.display='none'"
+                  class="w3-button w3-display-topright">&times;</span>
+            <h2>Book Your Flight</h2>
+        </header>
+        <table cellpadding="0" cellspacing="0">
+            <table class="w3-table-all w3-small">
+                <tr class="w3-blue-grey">
+                    <th>Airline</th>
+                    <th>From City</th>
+                    <th>To City</th>
+                    <th>Travel Category</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Available Seats</th>
+                    <th>Price Per Seat</th>
+                </tr>
+                @*@foreach (DataRow row in Model.Tables[0].Rows)
+                    {
+                        <tr>
+                            <td>@row["TRANSACTION_ID"]</td>
+                            <td>@row["FROM_ACCOUNT"]</td>
+                            <td>@row["TO_ACCOUNT"]</td>
+                            <td>@row["TRANSACTION_TYPE"]</td>
+                            <td>@row["TRANSACTION_DATE"]</td>
+                            <td>@row["AMOUNT"]</td>
+                            <td>@row["ACCOUNT"]</td>
+                        </tr>
+                    }*@
+            </table>
+            <footer class="w3-container w3-sand">
+                <p></p>
+            </footer>
+    </div>
+</div>

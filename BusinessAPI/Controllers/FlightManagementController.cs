@@ -110,9 +110,43 @@ namespace BusinessAPI.Controllers
                         break;
 
                     case TravelCategory.Economy:
+
+                        #region Economy Class Reservation
+
+                        //1.map request into EconomyClassReservationDTO 
+                        EconomyClassReservationDTO economyClassReservationtRequest = Mapper.GetEconomyClassReservationDTO(request);
+
+                        EconomyClassRepository economyClassRepository = new EconomyClassRepository();
+
+                        //2.Invoke GetFlightReservationDetails via EconomyClassRepository
+
+                        IList<FlightReservationDetailsDTO> flightReservationsDetails2 = economyClassRepository.GetFlightReservationDetails(economyClassReservationtRequest, out response);
+
+                        //3. set FlightReservationDetails into GetFlightReservationResponse
+                        getFlightReservationResponse.FlightReservationDetails = flightReservationsDetails2;
+
+                        #endregion
+
                         break;
 
                     case TravelCategory.Business:
+
+                        #region Business Class Reservation
+
+                        //1.map request into BusinessClassReservationDTO 
+                        BusinessClassReservationDTO businessClassReservationtRequest = Mapper.GetBusinessClassReservationDTO(request);
+
+                        BusinessClassRepository businessClassRepository = new BusinessClassRepository();
+
+                        //2.Invoke GetFlightReservationDetails via BusinessClassRepository
+
+                        IList<FlightReservationDetailsDTO> flightReservationsDetails3 = businessClassRepository.GetFlightReservationDetails(businessClassReservationtRequest, out response);
+
+                        //3. set FlightReservationDetails into GetFlightReservationResponse
+                        getFlightReservationResponse.FlightReservationDetails = flightReservationsDetails3;
+
+                        #endregion
+
                         break;
 
                     default:

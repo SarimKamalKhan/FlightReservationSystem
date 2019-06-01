@@ -20,6 +20,30 @@ namespace Constants
             return firstClassReservationtRequest;
         }
 
+        public static BusinessClassReservationDTO GetBusinessClassReservationDTO(GetFlightSchedulesRequest request)
+        {
+            BusinessClassReservationDTO businessClassReservationtRequest = new BusinessClassReservationDTO();
+            businessClassReservationtRequest.TravelCategoryCode = TravelCategory.Business;
+            businessClassReservationtRequest.ToCity = request.ToCity;
+            businessClassReservationtRequest.FromCity = request.FromCity;
+            businessClassReservationtRequest.ReservationDate = request.ReservationDate;
+            businessClassReservationtRequest.AirLineCode = request.AirLineCode;
+
+            return businessClassReservationtRequest;
+        }
+
+        public static EconomyClassReservationDTO GetEconomyClassReservationDTO(GetFlightSchedulesRequest request)
+        {
+            EconomyClassReservationDTO economyClassReservationtRequest = new EconomyClassReservationDTO();
+            economyClassReservationtRequest.TravelCategoryCode = TravelCategory.Economy;
+            economyClassReservationtRequest.ToCity = request.ToCity;
+            economyClassReservationtRequest.FromCity = request.FromCity;
+            economyClassReservationtRequest.ReservationDate = request.ReservationDate;
+            economyClassReservationtRequest.AirLineCode = request.AirLineCode;
+
+            return economyClassReservationtRequest;
+        }
+
         public static AllClassReservationDTO GetAllClassReservationDTO(GetFlightSchedulesRequest request)
         {
             AllClassReservationDTO allClassReservationtRequest = new AllClassReservationDTO();

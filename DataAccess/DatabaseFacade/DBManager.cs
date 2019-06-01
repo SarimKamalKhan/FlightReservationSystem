@@ -102,6 +102,81 @@ namespace DataAccess.DatabaseFacade
             return ds_Responses;
         }
 
+        public DataSet GetEconomyClassReservationDetails(EconomyClassReservationDTO economyClassReservation, out string spResponse)
+        {
+            string functionName = ".GetFlightReservationDetails";
+            string source = ClassName + functionName;
+            spResponse = string.Empty;
+            DataSet ds_Responses = new DataSet();
+            try
+            {
+
+                string SPName = "PKG_FLIGHT_RESERVATION.GetEconomyClassDetails";
+
+                GeneralParams[] Params = new GeneralParams[7];
+
+                Params[0] = new GeneralParams("inAirLineCode", 100, GeneralParams.GeneralDBTypes.VarChar, economyClassReservation.AirLineCode, ParameterDirection.Input);
+
+                Params[1] = new GeneralParams("inTravelCategoryCode", 100, GeneralParams.GeneralDBTypes.VarChar, economyClassReservation.TravelCategoryCode, ParameterDirection.Input);
+
+                Params[2] = new GeneralParams("inFromCity", 100, GeneralParams.GeneralDBTypes.VarChar, economyClassReservation.FromCity, ParameterDirection.Input);
+
+                Params[3] = new GeneralParams("inToCity", 100, GeneralParams.GeneralDBTypes.VarChar, economyClassReservation.ToCity, ParameterDirection.Input);
+
+                Params[4] = new GeneralParams("inReservationDate", 100, GeneralParams.GeneralDBTypes.DateTime, economyClassReservation.ReservationDate, ParameterDirection.Input);
+
+                Params[5] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[6] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+
+                ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
+                spResponse = Params[6].OutputValue;
+            }
+            catch (System.Exception ex)
+            {
+                spResponse = CommonHelper.Constants.ResponseCodes.Failed;
+            }
+
+            return ds_Responses;
+        }
+
+
+        public DataSet GetBusinessClassReservationDetails(BusinessClassReservationDTO businessClassReservation, out string spResponse)
+        {
+            string functionName = ".GetFlightReservationDetails";
+            string source = ClassName + functionName;
+            spResponse = string.Empty;
+            DataSet ds_Responses = new DataSet();
+            try
+            {
+
+                string SPName = "PKG_FLIGHT_RESERVATION.GetBusinessClassDetails";
+
+                GeneralParams[] Params = new GeneralParams[7];
+
+                Params[0] = new GeneralParams("inAirLineCode", 100, GeneralParams.GeneralDBTypes.VarChar, businessClassReservation.AirLineCode, ParameterDirection.Input);
+
+                Params[1] = new GeneralParams("inTravelCategoryCode", 100, GeneralParams.GeneralDBTypes.VarChar, businessClassReservation.TravelCategoryCode, ParameterDirection.Input);
+
+                Params[2] = new GeneralParams("inFromCity", 100, GeneralParams.GeneralDBTypes.VarChar, businessClassReservation.FromCity, ParameterDirection.Input);
+
+                Params[3] = new GeneralParams("inToCity", 100, GeneralParams.GeneralDBTypes.VarChar, businessClassReservation.ToCity, ParameterDirection.Input);
+
+                Params[4] = new GeneralParams("inReservationDate", 100, GeneralParams.GeneralDBTypes.DateTime, businessClassReservation.ReservationDate, ParameterDirection.Input);
+
+                Params[5] = new GeneralParams("outCursor", 0, GeneralParams.GeneralDBTypes.Cursor, null, ParameterDirection.Output);
+                Params[6] = new GeneralParams("outResponseCode", 3, GeneralParams.GeneralDBTypes.VarChar, null, ParameterDirection.Output);
+
+                ds_Responses = DBComponent.IDBMgr().ExecuteSP(SPName, Params);
+                spResponse = Params[6].OutputValue;
+            }
+            catch (System.Exception ex)
+            {
+                spResponse = CommonHelper.Constants.ResponseCodes.Failed;
+            }
+
+            return ds_Responses;
+        }
+
         public DataSet GetAllClassReservationDetails(AllClassReservationDTO allClassReservation, out string spResponse)
         {
             string functionName = ".GetAllClassReservationDetails";

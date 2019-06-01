@@ -76,13 +76,14 @@ namespace DataAccess.DataBaseComponent
         override public int ExecuteNonQuery(string SPName, GeneralParams[] Params)
         {
             string sFunctionName = "ExecuteNonQuery";
-           
 
+       
             try
             {
                 Connection = OpenConnection();
                 OracleCommand Command = CreateCommand(Connection, SPName, Params, CommandType.StoredProcedure);
-        
+
+         
                 int Rows_Affected = Command.ExecuteNonQuery();
                 SetParameters(ref Params, Command);
                 CloseConnection(Connection);
