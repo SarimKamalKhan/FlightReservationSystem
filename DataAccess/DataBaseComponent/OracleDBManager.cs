@@ -35,6 +35,11 @@ namespace DataAccess.DataBaseComponent
                 {
                     Connection.Open();
                 }
+                else
+                {
+                    Connection = new OracleConnection(ConnectionString);
+                    Connection.Open();
+                }
               
                 return Connection;
             }
